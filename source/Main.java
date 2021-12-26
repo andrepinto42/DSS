@@ -9,9 +9,9 @@ public class Main{
     public static List<Pessoa> allPessoas = new ArrayList<Pessoa>();
     public static void main(String[] args) {
 
-        ReadLoadPessoas.ReadAllPessoa();
-    // Interpreter it = new Interpreter();
-    // it.Initialize();
+        // ReadLoadPessoas.ReadAllPessoa();
+    Interpreter it = new Interpreter();
+    it.Initialize();
     }
     public static void doStuff()
     {

@@ -13,6 +13,7 @@ import bin.ShowMenu;
 import bin.Phase;
 import bin.Phase1;
 import bin.Phase2;
+import bin.Phase4;
 
 public class Interpreter {
     Scanner sc;
@@ -24,7 +25,7 @@ public class Interpreter {
     }
     public void Initialize()
     {
-        Phase phaseNow = new Phase1();
+        Phase phaseNow = new Phase4();
         
         String comandoInput = "";
         while(alive)

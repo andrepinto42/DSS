@@ -11,7 +11,6 @@ public class Pedido {
     private LocalDate inicio;
     private LocalDate fim;
     private Integer orcamento;
-
     private Plano pl;
 
     public Pedido(){
@@ -24,7 +23,7 @@ public class Pedido {
 
     }
 
-    public Pedido(Integer id, NIF, LocalDate inicio, LocalDate fim, Integer orcamento, Plano pl){
+    public Pedido(Integer id,long NIF, LocalDate inicio, LocalDate fim, Integer orcamento, Plano pl){
         this.id = id;
         this.NIF = NIF;
         this.inicio = inicio;

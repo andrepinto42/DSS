@@ -7,6 +7,7 @@ default:
 	source/Menu/Phases/Phase1.java \
 	source/Menu/Phases/Phase2.java \
 	source/Menu/Phases/Phase3.java \
+	source/Menu/Phases/Phase4.java \
 	source/Menu/ShowMenu.java \
 	source/Menu/Interpreter.java \
 	source/Main.java

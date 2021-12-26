@@ -3,7 +3,7 @@ import bin.Phase2;
 import java.util.List;
 
 
-public class Phase1 extends bin.Phase {
+public class Phase1 extends Phase {
 
     public Phase1()
     {
@@ -23,7 +23,7 @@ public class Phase1 extends bin.Phase {
         numberStages = InputForStages.length +1;
 
         CommandsMap.put("login", Phase2.class);
-        CommandsMap.put("register", bin.Phase3.class);
+        CommandsMap.put("register", Phase3.class);
 
     }
 

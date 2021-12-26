@@ -1,4 +1,4 @@
-package bin.Menu.Phases;
+package bin;
 
 import bin.Phase;
 import bin.Phase1;
@@ -10,8 +10,9 @@ public class Phase4 extends Phase {
     public Phase4(){
 
         Messages =  new String[]{ "Iniciar pedido"," " };
-        TipForInput = "Insira o seu NIF";
-        InputForStages = new String[]{ "" };
+        TipForInput = "Insira o NIF do Cliente";
+        InputForStages = new String[]{ "Nome do Funcionario",
+        "Nome do equipamento" };
         numberStages = InputForStages.length +1;
         CommandsMap.put("any", Phase1.class);
     }
@@ -20,15 +21,18 @@ public class Phase4 extends Phase {
     public Phase HandleCommand(List<String> s) {
 
         String NIF = s.get(0);
-        String id = s.get(1);
+        String nomeFuncionario = s.get(1);
+        String nomeEquipamento = s.get(2);
 
         //Se nao existir esse usuario na base de dados
-        if (!cargo.equalsIgnoreCase("balcao")) {
+        if (!NIF.equalsIgnoreCase("balcao")) {
             ChangeWarningMessage("So existe balcao " + " por favor insira algo de jeito\n");
             return null;
         }
 
-        List<String> l =  new ArrayList<String>();
-        l.add("any");
-        return super.HandleCommand(l);
+        //Se foi feito com sucesso
+        Phase p = new Phase1();
+        return p;
+
     }
+}
