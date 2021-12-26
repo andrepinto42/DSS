@@ -4,7 +4,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.lang.reflect.Constructor;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
@@ -12,7 +16,13 @@ import bin.Pessoas.*;
 
 public class ReadLoadPessoas {
     public static String nameFile = "dados/baseDados.txt";
-
+    private static Map<String,Class<? extends Pessoa>> stringPessoas = new HashMap<String,Class<? extends Pessoa>>()
+    {
+        {
+            put("Cliente", Cliente.class);
+            put("Funcionario", FuncionarioBalcao.class);
+        }
+    };
 
     public static void WritePessoa(Pessoa p){
         var fwriter = GetFileWriter();
@@ -32,23 +42,37 @@ public class ReadLoadPessoas {
         
     }
 
-    public static List<String> ReadAllPessoa()
+    public static List<Pessoa> ReadAllPessoa()
     {
         var br =  GetFileReader();
         String line ="";
         var allLines=  br.lines().collect(Collectors.toList());
-
+        List<Pessoa> allPessoas = new ArrayList<Pessoa>();
         Scanner sc;
+        
         for (int i = 0; i < allLines.size(); i++) {
             sc = new Scanner(allLines.get(i));
             sc.useDelimiter(";");
 
+            Pessoa pI = null;
             String tipoPessoa =  sc.next();
             String nomePessoa =  sc.next();
             String IDPessoa =  sc.next();
             String passwordPessoa =  sc.next();
+
+            try {
+                Constructor<Pessoa> construt =(Constructor<Pessoa>) stringPessoas.get(tipoPessoa).getConstructors()[0];
+                pI = construt.newInstance(
+                    nomePessoa,
+                    IDPessoa,
+                    passwordPessoa
+                );    
+            } catch (Exception e) { e.printStackTrace();}
+            
+            if (pI != null)
+            allPessoas.add(pI);
         }
-        return null;
+        return allPessoas;
     }
 
 

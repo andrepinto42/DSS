@@ -4,14 +4,16 @@ import java.util.List;
 import java.util.Scanner;
 
 import bin.Interpreter;
+import bin.Pessoas.Pessoa;
 import bin.Pessoas.*;
 public class Main{
     public static List<Pessoa> allPessoas = new ArrayList<Pessoa>();
     public static void main(String[] args) {
 
-        // ReadLoadPessoas.ReadAllPessoa();
-    Interpreter it = new Interpreter();
-    it.Initialize();
+        allPessoas = ReadLoadPessoas.ReadAllPessoa();
+
+    // Interpreter it = new Interpreter();
+    // it.Initialize();
     }
     public static void doStuff()
     {

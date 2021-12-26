@@ -2,6 +2,7 @@ default:
 	javac -d . \
 	source/Pessoas/Pessoa.java \
 	source/Pessoas/Cliente.java \
+	source/Pessoas/FuncionarioBalcao.java \
 	source/Pessoas/ReadLoadPessoas.java \
 	source/Menu/Phases/Phase.java \
 	source/Menu/Phases/Phase1.java \
