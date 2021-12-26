@@ -7,7 +7,7 @@ import bin.Pessoas.Pessoa;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Phase4 extends Phase {
+public class Phase4 extends bin.Phase {
     public Phase4(){
 
         Messages =  new String[]{ "Iniciar pedido"," " };
@@ -48,4 +48,6 @@ public class Phase4 extends Phase {
         return p;
 
     }
+
+
 }

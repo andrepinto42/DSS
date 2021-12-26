@@ -17,6 +17,22 @@ public class Plano {
         this.custo = custo;
     }
 
+    public Integer getTotalHoras() {
+        return totalHoras;
+    }
+
+    public void setTotalHoras(Integer totalHoras) {
+        this.totalHoras = totalHoras;
+    }
+
+    public Integer getCusto() {
+        return custo;
+    }
+
+    public void setCusto(Integer custo) {
+        this.custo = custo;
+    }
+
     //random????
     public static Integer calculaCusto(){
         Random random = new Random();
