@@ -21,6 +21,8 @@ public class ReadLoadPessoas {
         {
             put("Cliente", Cliente.class);
             put("Funcionario", FuncionarioBalcao.class);
+            put("Gestor", Gestor.class);
+            put("Reparacao", FuncionarioReparacao.class);
         }
     };
 
@@ -45,7 +47,6 @@ public class ReadLoadPessoas {
     public static List<Pessoa> ReadAllPessoa()
     {
         var br =  GetFileReader();
-        String line ="";
         var allLines=  br.lines().collect(Collectors.toList());
         List<Pessoa> allPessoas = new ArrayList<Pessoa>();
         Scanner sc;

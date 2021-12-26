@@ -1,14 +1,25 @@
-default:
-	javac -d . \
-	source/Pessoas/Pessoa.java \
+pessoas= source/Pessoas/Pessoa.java \
 	source/Pessoas/Cliente.java \
+	source/Pessoas/Gestor.java \
 	source/Pessoas/FuncionarioBalcao.java \
-	source/Pessoas/ReadLoadPessoas.java \
-	source/Menu/Phases/Phase.java \
+	source/Pessoas/FuncionarioReparacao.java \
+	source/Pessoas/ReadLoadPessoas.java\
+
+phases= source/Menu/Phases/Phase.java \
 	source/Menu/Phases/Phase1.java \
 	source/Menu/Phases/Phase2.java \
 	source/Menu/Phases/Phase3.java \
-	source/Menu/Phases/Phase4.java \
+	source/Menu/Phases/Phase4.java\
+
+pedidos= source/Pedido/Pedido.java \
+	source/Pedido/Plano.java \
+	source/Pedido/ReadLoadPedidos.java\
+
+default:
+	javac -d . \
+	$(pessoas) \
+	$(pedidos) \
+	$(phases) \
 	source/Menu/ShowMenu.java \
 	source/Menu/Interpreter.java \
 	source/Main.java

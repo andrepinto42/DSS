@@ -35,7 +35,9 @@ public class ReadLoadPedidos {
 
     }
 
-    public static List<String> ReadAllPedidos() {}
+    public static List<String> ReadAllPedidos() {
+        return null;
+    }
 
 //.......
 

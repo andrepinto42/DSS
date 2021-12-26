@@ -34,8 +34,8 @@ public class Phase2 extends Phase{
             ChangeWarningMessage("Não existe o usuário "+  username + " por favor insira algo de jeito\n");
             return null;
         }
-        List<String> l =  new ArrayList<String>();
-        l.add("any");
-        return super.HandleCommand(l);
+
+        Phase p = new Phase1();
+        return p;
     }
 }

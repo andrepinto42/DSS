@@ -30,10 +30,17 @@ public class Phase1 extends bin.Phase {
     @Override
     public Phase HandleCommand(List<String> s) {
         
-        Phase newPhase = super.HandleCommand(s);
-        if (newPhase != null) return newPhase;
-        ChangeWarningMessage("Ups não inseriu nada de jeito\n");
-        return null;
+        if (!CommandsMap.containsKey(s.get(0))) 
+        {
+            ChangeWarningMessage("Ups não inseriu nada de jeito\n");
+            return null;
+        }
+        Phase p= null;
+        try {
+            p = CommandsMap.get(s.get(0)).getDeclaredConstructor().newInstance();
+            
+        } catch (Exception ignored) { }     
+        return p;        
     }
 
 }

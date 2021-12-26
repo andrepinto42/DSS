@@ -29,8 +29,8 @@ public class Phase3 extends Phase {
             return null;
         }
 
-        List<String> l =  new ArrayList<String>();
-        l.add("any");
-        return super.HandleCommand(l);
+         //Se foi feito com sucesso
+         Phase phase = new Phase1();
+         return phase;
     }
 }

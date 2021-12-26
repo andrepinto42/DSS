@@ -1,5 +1,6 @@
 package bin;
 
+import bin.Main;
 import bin.Pedido.Pedido;
 import bin.Pessoas.FuncionarioBalcao;
 import bin.Pessoas.Pessoa;
@@ -7,7 +8,7 @@ import bin.Pessoas.Pessoa;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Phase4 extends bin.Phase {
+public class Phase4 extends Phase {
     public Phase4(){
 
         Messages =  new String[]{ "Guardar pedido"," " };
@@ -31,22 +32,22 @@ public class Phase4 extends bin.Phase {
         }
 
         for(Pessoa p : Main.allPessoas){
-            if(!(p instanceof FuncionarioBalcao) || (!p.getNome().equals(nomeFuncionario))){
-                ChangeWarningMessage("O funcionario " + nomeFuncionario + "não existe no nosso sistema\n");
-                return null;
+            //Funcionario do balcao foi encontrado com sucesso
+            if( (p.getNome().equals(nomeFuncionario)) && (p instanceof FuncionarioBalcao) )
+            {
+                Pedido pdd = new Pedido();
+                pdd.setId(nomeEquipamento);
+                Main.allPedidos.put(LocalDate.now(),pdd);
+        
+                //Se foi feito com sucesso
+                Phase phase = new Phase1();
+                return phase;
             }
         }
 
-        Pedido pdd = new Pedido();
-        pdd.setId(nomeEquipamento);
-        Main.allPedidos.put(LocalDate.now(),pdd);
-
-
-
-        //Se foi feito com sucesso
-        Phase p = new Phase1();
-        return p;
-
+        //Funcionário nao existe na base de dados
+        ChangeWarningMessage("O funcionario " + nomeFuncionario + " não existe no nosso sistema\n");
+        return null;
     }
 
 

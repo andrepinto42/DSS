@@ -29,17 +29,7 @@ public abstract class Phase {
         return sc.nextLine();
     }
 
-    public Phase HandleCommand(List<String> s)
-    {   
-        if (!CommandsMap.containsKey(s.get(0))) return null;
-
-        Phase p= null;
-        try {
-            p = CommandsMap.get(s.get(0)).getDeclaredConstructor().newInstance();
-            
-        } catch (Exception ignored) { }     
-        return p;
-    }
+    public abstract Phase HandleCommand(List<String> s);
 
     protected void ChangeWarningMessage(String s) {
         warningMessageTop = s;
