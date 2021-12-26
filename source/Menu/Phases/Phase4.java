@@ -10,7 +10,7 @@ import java.util.List;
 public class Phase4 extends bin.Phase {
     public Phase4(){
 
-        Messages =  new String[]{ "Iniciar pedido"," " };
+        Messages =  new String[]{ "Guardar pedido"," " };
         TipForInput = "Insira o NIF do Cliente";
         InputForStages = new String[]{ "Nome do Funcionario",
         "Nome do equipamento" };
