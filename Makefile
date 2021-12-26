@@ -1,5 +1,6 @@
 default:
 	javac -d . \
+	source/Pessoas/Pessoa.java \
 	source/Menu/Phases/Phase.java \
 	source/Menu/Phases/Phase1.java \
 	source/Menu/Phases/Phase2.java \
