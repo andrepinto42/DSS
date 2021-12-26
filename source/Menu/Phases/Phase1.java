@@ -3,7 +3,7 @@ import bin.Phase2;
 import java.util.List;
 
 
-public class Phase1 extends Phase {
+public class Phase1 extends bin.Phase {
 
     public Phase1()
     {

@@ -1,9 +1,10 @@
 package bin;
 
-import bin.Phase;
-import bin.Phase1;
+import bin.Pedido.Pedido;
+import bin.Pessoas.FuncionarioBalcao;
+import bin.Pessoas.Pessoa;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
 
 public class Phase4 extends Phase {
@@ -24,11 +25,23 @@ public class Phase4 extends Phase {
         String nomeFuncionario = s.get(1);
         String nomeEquipamento = s.get(2);
 
-        //Se nao existir esse usuario na base de dados
-        if (!NIF.equalsIgnoreCase("balcao")) {
-            ChangeWarningMessage("So existe balcao " + " por favor insira algo de jeito\n");
+        if (!NIF.matches("[0-9]+")){
+            ChangeWarningMessage("Insira um NIF correto!\n");
             return null;
         }
+
+        for(Pessoa p : Main.allPessoas){
+            if(!(p instanceof FuncionarioBalcao) || (!p.getNome().equals(nomeFuncionario))){
+                ChangeWarningMessage("O funcionario " + nomeFuncionario + "não existe no nosso sistema\n");
+                return null;
+            }
+        }
+
+        Pedido pdd = new Pedido();
+        pdd.setId(nomeEquipamento);
+        Main.allPedidos.put(LocalDate.now(),pdd);
+
+
 
         //Se foi feito com sucesso
         Phase p = new Phase1();
