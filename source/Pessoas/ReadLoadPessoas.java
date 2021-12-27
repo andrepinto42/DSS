@@ -77,9 +77,6 @@ public class ReadLoadPessoas {
     }
 
 
-
-
-
     private static FileWriter GetFileWriter()
     {
         try {
@@ -102,11 +99,14 @@ public class ReadLoadPessoas {
 
     private static String GetNameClassPessoa(Pessoa p)
     {
-        String s;
-        try {
-            s = p.getClass().getSimpleName();
-        } catch (Exception e) {
-            s = "Cliente";
+        String s = "Cliente";
+        for (var entrada : stringPessoas.entrySet())
+        {
+            //Found the corresponding class
+            if (entrada.getValue().equals(p.getClass()))
+            {
+                s = entrada.getKey();    
+            }
         }
         return s;
     }

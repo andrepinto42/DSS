@@ -12,7 +12,9 @@ public class Phase3 extends Phase {
 
     Messages =  new String[]{ "Registe-se no Sistema"," " };
     TipForInput = "Insira o seu nome";
-    InputForStages = new String[]{ "Insira o seu encargo" };
+    InputForStages = new String[]{ 
+        "Insira o seu encargo",
+        "Insira a sua password" };
     numberStages = InputForStages.length +1;
     }
 
@@ -21,6 +23,7 @@ public class Phase3 extends Phase {
         
         String name = s.get(0);
         String cargo = s.get(1);
+        String password = s.get(2);
 
         //Se nao existir esse usuario na base de dados
         if (!cargo.equalsIgnoreCase("balcao")) {

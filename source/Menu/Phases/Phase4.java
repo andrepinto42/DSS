@@ -39,10 +39,8 @@ public class Phase4 extends Phase {
                 pdd.setId(nomeEquipamento);
                 Controller.allPedidos.put(LocalDate.now(),pdd);
 
-        
                 //Se foi feito com sucesso
                 return new Phase1();
-
             }
         }
 
@@ -50,6 +48,4 @@ public class Phase4 extends Phase {
         ChangeWarningMessage("O funcionario " + nomeFuncionario + " não existe no nosso sistema\n");
         return null;
     }
-
-
 }
