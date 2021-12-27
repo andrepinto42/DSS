@@ -12,7 +12,7 @@ import java.util.List;
 public class Phase4 extends Phase {
     public Phase4(){
 
-        Messages =  new String[]{ "Guardar pedido"," " };
+        Messages =  new String[]{ "Novo pedido"," " };
         TipForInput = "Insira o NIF do Cliente";
         InputForStages = new String[]{ "Nome do Funcionario",
         "Nome do equipamento" };
@@ -38,10 +38,11 @@ public class Phase4 extends Phase {
                 Pedido pdd = new Pedido();
                 pdd.setId(nomeEquipamento);
                 Controller.allPedidos.put(LocalDate.now(),pdd);
+
         
                 //Se foi feito com sucesso
-                Phase phase = new Phase1();
-                return phase;
+                return new Phase1();
+
             }
         }
 

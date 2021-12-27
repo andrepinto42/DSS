@@ -1,12 +1,7 @@
 package bin.Menu.Phases;
 
 import bin.Controller;
-import bin.Main;
 import bin.Pedido.Pedido;
-import bin.Pedido.Plano;
-import bin.Pessoas.Cliente;
-import bin.Pessoas.FuncionarioBalcao;
-import bin.Pessoas.Pessoa;
 import bin.Phase;
 import bin.Phase1;
 
@@ -14,10 +9,10 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-public class Phase6 extends Phase {
-    public Phase6(){
+public class Phase7 extends Phase {
+    public Phase7(){
 
-        Messages =  new String[]{ "Iniciar reparação"," " };
+        Messages =  new String[]{ "Finalizar pedido"," " };
         TipForInput = "Insira o identificador do Pedido";
         InputForStages = new String[]{ "",
                 "" };
@@ -28,18 +23,10 @@ public class Phase6 extends Phase {
     public Phase HandleCommand(List<String> s) {
 
         String idPedido = s.get(0);
-        String NIFcliente = s.get(1);
 
         Boolean temp = false;
         for(Pedido pdd : Controller.allPedidos.values()){
             if(pdd.getId().equals(idPedido)) {
-                temp = true;
-
-                pdd.setInicio(LocalDate.now());
-
-                long days = (long)(pdd.getPl().getTotalHoras())/24;
-
-                pdd.setFim(LocalDate.now().plus(days, ChronoUnit.DAYS));
             }
         }
         if(!temp){
@@ -49,6 +36,5 @@ public class Phase6 extends Phase {
 
         //Se foi feito com sucesso
         return new Phase1();
-
     }
 }

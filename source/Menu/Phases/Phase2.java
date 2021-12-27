@@ -34,7 +34,7 @@ public class Phase2 extends Phase{
             return null;
         }
 
-        Phase p = new Phase1();
-        return p;
+        return new Phase1();
+
     }
 }

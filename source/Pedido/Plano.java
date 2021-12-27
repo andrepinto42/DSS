@@ -33,13 +33,13 @@ public class Plano {
         this.custo = custo;
     }
 
-    //random????
+    //random???? 10 a 100 euros?
     public static Integer calculaCusto(){
         Random random = new Random();
         return random.nextInt(101 - 10) + 10;
     }
 
-    //random????
+    //random???? 1 a 5 dias?
     public static Integer calculaHoras(){
         Random random = new Random();
         return random.nextInt(121 - 24) + 24;

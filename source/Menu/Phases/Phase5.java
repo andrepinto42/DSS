@@ -23,6 +23,7 @@ public class Phase5 extends Phase {
     public Phase HandleCommand(List<String> s) {
         LocalDate dataH = LocalDate.now();
 
+        //buscar o pedido mais antigo
         for(LocalDate data : Controller.allPedidos.keySet()){
             if(data.compareTo(dataH)<0){
                 dataH = data;
@@ -36,8 +37,8 @@ public class Phase5 extends Phase {
 
 
         //Se foi feito com sucesso
-        Phase p = new Phase1();
-        return p;
+        return new Phase1();
+
 
     }
 }

@@ -29,7 +29,7 @@ public class Phase3 extends Phase {
         }
 
          //Se foi feito com sucesso
-         Phase phase = new Phase1();
-         return phase;
+         return new Phase1();
+
     }
 }
