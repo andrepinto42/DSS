@@ -4,6 +4,7 @@ import bin.Main;
 import bin.Pedido.Pedido;
 import bin.Pessoas.FuncionarioBalcao;
 import bin.Pessoas.Pessoa;
+import bin.Controller;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -30,13 +31,13 @@ public class Phase4 extends Phase {
             return null;
         }
 
-        for(Pessoa p : Main.allPessoas){
+        for(Pessoa p : Controller.allPessoas){
             //Funcionario do balcao foi encontrado com sucesso
             if( (p.getNome().equals(nomeFuncionario)) && (p instanceof FuncionarioBalcao) )
             {
                 Pedido pdd = new Pedido();
                 pdd.setId(nomeEquipamento);
-                Main.allPedidos.put(LocalDate.now(),pdd);
+                Controller.allPedidos.put(LocalDate.now(),pdd);
         
                 //Se foi feito com sucesso
                 Phase phase = new Phase1();

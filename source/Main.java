@@ -7,14 +7,9 @@ import bin.Pessoas.Pessoa;
 import bin.Pedido.*;
 import bin.Pessoas.*;
 public class Main {
-    public static List<Pessoa> allPessoas = new ArrayList<Pessoa>();
-    //public static List<Pedido> allPedidos = new ArrayList<>();
-    public static Map<LocalDate, Pedido> allPedidos = new HashMap<LocalDate,Pedido>();
-
+    
     public static void main(String[] args) {
-
-        allPessoas = ReadLoadPessoas.ReadAllPessoa();
-
+        
         Interpreter it = new Interpreter();
         it.Initialize();
     }

@@ -30,7 +30,7 @@ public class Phase6 extends Phase {
         String NIFcliente = s.get(1);
 
         Boolean temp = false;
-        for(Pedido pdd : Main.allPedidos.values()){
+        for(Pedido pdd : Controller.allPedidos.values()){
             if(pdd.getId().equals(idPedido)) {
                 temp = true;
 
@@ -46,13 +46,8 @@ public class Phase6 extends Phase {
             return null;
         }
 
-
-
         //Se foi feito com sucesso
         Phase p = new Phase1();
         return p;
-
-
-
     }
 }

@@ -1,9 +1,13 @@
 package bin;
 import bin.Phase2;
+
+import java.util.HashMap;
 import java.util.List;
 
 
 public class Phase1 extends bin.Phase {
+    private HashMap<String,Class<? extends Phase>> CommandsMap =
+        new HashMap<String,Class<? extends Phase>>();
 
     public Phase1()
     {
@@ -29,15 +33,16 @@ public class Phase1 extends bin.Phase {
 
     @Override
     public Phase HandleCommand(List<String> s) {
+        String firstCommand = s.get(0);
         
-        if (!CommandsMap.containsKey(s.get(0))) 
+        if (!CommandsMap.containsKey(firstCommand)) 
         {
             ChangeWarningMessage("Ups não inseriu nada de jeito\n");
             return null;
         }
         Phase p= null;
         try {
-            p = CommandsMap.get(s.get(0)).getDeclaredConstructor().newInstance();
+            p = CommandsMap.get(firstCommand).getDeclaredConstructor().newInstance();
             
         } catch (Exception ignored) { }     
         return p;        

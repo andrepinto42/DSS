@@ -23,13 +23,13 @@ public class Phase5 extends Phase {
     public Phase HandleCommand(List<String> s) {
         LocalDate dataH = LocalDate.now();
 
-        for(LocalDate data : Main.allPedidos.keySet()){
+        for(LocalDate data : Controller.allPedidos.keySet()){
             if(data.compareTo(dataH)<0){
                 dataH = data;
             }
         }
 
-        Pedido pdd = Main.allPedidos.get(dataH);
+        Pedido pdd = Controller.allPedidos.get(dataH);
         Plano pll = new Plano(Plano.calculaHoras(),Plano.calculaCusto());
         pdd.setPl(pll);
         pdd.setOrcamento(Plano.calculaCusto());

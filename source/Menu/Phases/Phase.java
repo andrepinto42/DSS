@@ -11,7 +11,6 @@ public abstract class Phase {
     public  int numberStages = 1;
     protected  String[] InputForStages;
     protected String warningMessageTop = "";
-    protected HashMap<String,Class<? extends Phase>> CommandsMap = new HashMap<String,Class<? extends Phase>>();
 
     public String Show(Scanner sc)
     {

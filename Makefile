@@ -20,6 +20,7 @@ default:
 	$(pessoas) \
 	$(pedidos) \
 	$(phases) \
+	source/Controller.java \
 	source/Menu/ShowMenu.java \
 	source/Menu/Interpreter.java \
 	source/Main.java

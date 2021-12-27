@@ -17,8 +17,8 @@ public class Phase2 extends Phase{
         TipForInput = "Username";
 
         InputForStages = new String[]{
-            "Tipo de Empregado :",
-            "Password :",
+            "Tipo de Empregado",
+            "Password",
         };
         numberStages = InputForStages.length +1;
     }
