@@ -2,6 +2,7 @@ package bin;
 
 import bin.Main;
 import bin.Pedido.Pedido;
+import bin.Pessoas.Cliente;
 import bin.Pessoas.FuncionarioBalcao;
 import bin.Pessoas.Pessoa;
 import bin.Controller;
@@ -14,8 +15,8 @@ public class Phase4 extends Phase {
 
         Messages =  new String[]{ "Novo pedido"," " };
         TipForInput = "Insira o NIF do Cliente";
-        InputForStages = new String[]{ "Nome do Funcionario",
-        "Nome do equipamento" };
+        InputForStages = new String[]{ "Insira o identificador do Pedido",
+        "" };
         numberStages = InputForStages.length +1;
     }
 
@@ -23,31 +24,32 @@ public class Phase4 extends Phase {
     public Phase HandleCommand(List<String> s) {
 
         String NIF = s.get(0);
-        String nomeFuncionario = s.get(1);
-        String nomeEquipamento = s.get(2);
+        String nomeEquipamento = s.get(1);
 
-        if (!NIF.matches("[0-9]+")){
+        /*if (!NIF.matches("[0-9]+")){
             ChangeWarningMessage("Insira um NIF correto!\n");
             return null;
-        }
+        }*/
 
         for(Pessoa p : Controller.allPessoas){
-            //Funcionario do balcao foi encontrado com sucesso
-            if( (p.getNome().equals(nomeFuncionario)) && (p instanceof FuncionarioBalcao) )
-            {
+            if((p instanceof Cliente) && ((Cliente) p).getNIF().equals(NIF)){
+
                 Pedido pdd = new Pedido();
                 pdd.setId(nomeEquipamento);
+                pdd.setNIF(NIF);
                 pdd.setDataRegisto(LocalDate.now());
 
                 Controller.allPedidos.add(pdd);
 
                 //Se foi feito com sucesso
                 return new Phase1();
+
             }
         }
-
-        //Funcionário nao existe na base de dados
-        ChangeWarningMessage("O funcionario " + nomeFuncionario + " não existe no nosso sistema\n");
+        ChangeWarningMessage("O NIF inserido não existe no sistema!\n");
         return null;
+
+
+
     }
 }

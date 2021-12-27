@@ -18,8 +18,8 @@ public class Phase8 extends Phase {
 
         Messages = new String[]{"Novo pedido EXPRESS", " "};
         TipForInput = "Insira o NIF do Cliente";
-        InputForStages = new String[]{"Nome do Funcionario",
-                "Nome do equipamento"};
+        InputForStages = new String[]{"Insira o identificador do Pedido",
+                ""};
         numberStages = InputForStages.length + 1;
     }
 
@@ -27,17 +27,12 @@ public class Phase8 extends Phase {
     public Phase HandleCommand(List<String> s) {
 
         String NIF = s.get(0);
-        String nomeFuncionario = s.get(1);
-        String nomeEquipamento = s.get(2);
+        String nomeEquipamento = s.get(1);
 
         if (!NIF.matches("[0-9]+")) {
             ChangeWarningMessage("Insira um NIF correto!\n");
             return null;
         }
-
-        for (Pessoa p : Controller.allPessoas) {
-            //Funcionario do balcao foi encontrado com sucesso
-            if ((p.getNome().equals(nomeFuncionario)) && (p instanceof FuncionarioBalcao)) {
 
                 int pddPorFinalizar = 0;
                 for (Pedido pdd : Controller.allPedidos) {
@@ -45,6 +40,7 @@ public class Phase8 extends Phase {
                         pddPorFinalizar++;
                     }
                 }
+
                 //pedido express pode ser realizado?????
                 if (pddPorFinalizar < 4) {
 
@@ -66,11 +62,7 @@ public class Phase8 extends Phase {
                     ChangeWarningMessage("O pedido EXPRESS não pode ser efetuado devido a sobrecarga de pedidos\n");
                     return null;
                 }
-            }else {
-                //Funcionário nao existe na base de dados
-                ChangeWarningMessage("O funcionario " + nomeFuncionario + " não existe no nosso sistema\n");
-                return null;
-            }
-        }
+
+
     }
 }
