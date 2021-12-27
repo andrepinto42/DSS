@@ -11,9 +11,14 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Phase1 extends bin.Phase {
+<<<<<<< HEAD
     private HashMap<String,Class<? extends Phase>> CommandsMap =
         new HashMap<String,Class<? extends Phase>>();
     public static Pessoa currentPessoa = null;
+=======
+    private HashMap<String,Class<? extends bin.Phase>> CommandsMap =
+        new HashMap<String,Class<? extends bin.Phase>>();
+>>>>>>> fb8f9d8bd8d7a92a2be4c737e2a32ff07294be07
 
     public Phase1()
     {

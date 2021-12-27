@@ -12,8 +12,9 @@ import bin.Pessoas.ReadLoadPessoas;
 
 public class Controller {
     public  static List<Pessoa> allPessoas = new ArrayList<Pessoa>();
-    public  static Map<LocalDate, Pedido> allPedidos = new HashMap<LocalDate,Pedido>();
     public static Pessoa CurrentPessoa;
+    public static List<Pedido> allPedidos = new ArrayList<>();
+    public static List<Pedido> pedidosFinalizados = new ArrayList<>();
 
     public Controller()
     {

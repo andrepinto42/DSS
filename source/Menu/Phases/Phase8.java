@@ -3,6 +3,7 @@ package bin.Menu.Phases;
 import bin.Controller;
 import bin.Pedido.Pedido;
 import bin.Pedido.Plano;
+import bin.Pedido.PlanoExpress;
 import bin.Pessoas.FuncionarioBalcao;
 import bin.Pessoas.Pessoa;
 import bin.Phase;
@@ -34,13 +35,12 @@ public class Phase8 extends Phase {
             return null;
         }
 
-
         for (Pessoa p : Controller.allPessoas) {
             //Funcionario do balcao foi encontrado com sucesso
             if ((p.getNome().equals(nomeFuncionario)) && (p instanceof FuncionarioBalcao)) {
 
                 int pddPorFinalizar = 0;
-                for (Pedido pdd : Controller.allPedidos.values()) {
+                for (Pedido pdd : Controller.allPedidos) {
                     if (LocalDate.now().compareTo(pdd.getFim()) < 0) {
                         pddPorFinalizar++;
                     }
@@ -49,11 +49,15 @@ public class Phase8 extends Phase {
                 if (pddPorFinalizar < 4) {
 
                     Pedido pdd = new Pedido();
+                    pdd.setNIF(NIF);
                     pdd.setId(nomeEquipamento);
-                    pdd.setOrcamento(10);//fixo???
-                    Plano pll = new Plano(24,10);//fixo??
+                    pdd.setDataRegisto(LocalDate.now());
+
+                    Plano pll = new PlanoExpress();
                     pdd.setPl(pll);
-                    Controller.allPedidos.put(LocalDate.now(), pdd);
+                    pdd.setOrcamento(pll.getCusto()+10);//mao de obra + custo
+
+                    Controller.allPedidos.add(pdd);
 
                     //Se foi feito com sucesso
                     return new Phase1();

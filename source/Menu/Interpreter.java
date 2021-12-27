@@ -9,11 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import bin.Menu.Phases.Phase8;
 import bin.ShowMenu;
 import bin.Phase;
 import bin.Phase1;
 import bin.Phase2;
 import bin.Phase4;
+import bin.Phase8;
 
 public class Interpreter {
     Scanner sc;
