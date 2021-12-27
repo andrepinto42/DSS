@@ -1,4 +1,4 @@
-package bin.Menu.Phases;
+package bin;
 
 import bin.Controller;
 import bin.Pedido.Pedido;
@@ -57,12 +57,8 @@ public class Phase8 extends Phase {
 
                     //Se foi feito com sucesso
                     return new Phase1();
-                }else{
-
-                    ChangeWarningMessage("O pedido EXPRESS não pode ser efetuado devido a sobrecarga de pedidos\n");
-                    return null;
                 }
-
-
+                ChangeWarningMessage("O pedido EXPRESS não pode ser efetuado devido a sobrecarga de pedidos\n");
+                return null;
     }
 }

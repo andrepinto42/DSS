@@ -62,8 +62,6 @@ public class Phase2 extends Phase{
             //Found the person we were looking after
             if (p.getClass().equals(stringPessoas.get(tipoFuncionario)) && p.getNome().equals(username))
             {
-                Controller.CurrentPessoa = p;
-
                 Phase1.currentPessoa = p;
 
                 return new Phase1();
