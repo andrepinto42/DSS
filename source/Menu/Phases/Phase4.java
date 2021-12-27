@@ -16,7 +16,6 @@ public class Phase4 extends Phase {
         InputForStages = new String[]{ "Nome do Funcionario",
         "Nome do equipamento" };
         numberStages = InputForStages.length +1;
-        CommandsMap.put("any", Phase1.class);
     }
 
     @Override

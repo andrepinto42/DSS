@@ -11,17 +11,16 @@ public class Phase2 extends Phase{
     public Phase2()
     {
         Messages =  new String[]{
-            "Autenticação",
+            "Autenticação do Empregado",
+            "",
         };
         TipForInput = "Username";
 
         InputForStages = new String[]{
-            "Password",
+            "Tipo de Empregado :",
+            "Password :",
         };
         numberStages = InputForStages.length +1;
-
-        CommandsMap.put("any",Phase1.class);
-
     }
     @Override
     public Phase HandleCommand(List<String> s) {

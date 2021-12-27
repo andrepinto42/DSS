@@ -14,7 +14,6 @@ public class Phase3 extends Phase {
     TipForInput = "Insira o seu nome";
     InputForStages = new String[]{ "Insira o seu encargo" };
     numberStages = InputForStages.length +1;
-    CommandsMap.put("any", Phase1.class);
     }
 
     @Override
