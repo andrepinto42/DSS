@@ -4,6 +4,7 @@ import bin.Controller;
 import bin.Pedido.Pedido;
 import bin.Pedido.Plano;
 import bin.Pedido.PlanoExpress;
+import bin.Pessoas.Cliente;
 import bin.Pessoas.FuncionarioBalcao;
 import bin.Pessoas.Pessoa;
 import bin.Phase;
@@ -18,8 +19,8 @@ public class Phase8 extends Phase {
 
         Messages = new String[]{"Novo pedido EXPRESS", " "};
         TipForInput = "Insira o NIF do Cliente";
-        InputForStages = new String[]{"Nome do Funcionario",
-                "Nome do equipamento"};
+        InputForStages = new String[]{"Insira o identificador do Pedido",
+                ""};
         numberStages = InputForStages.length + 1;
     }
 
@@ -27,24 +28,21 @@ public class Phase8 extends Phase {
     public Phase HandleCommand(List<String> s) {
 
         String NIF = s.get(0);
-        String nomeFuncionario = s.get(1);
-        String nomeEquipamento = s.get(2);
+        String nomeEquipamento = s.get(1);
 
         if (!NIF.matches("[0-9]+")) {
             ChangeWarningMessage("Insira um NIF correto!\n");
             return null;
         }
 
-        for (Pessoa p : Controller.allPessoas) {
-            //Funcionario do balcao foi encontrado com sucesso
-            if ((p.getNome().equals(nomeFuncionario)) && (p instanceof FuncionarioBalcao)) {
-
-                int pddPorFinalizar = 0;
-                for (Pedido pdd : Controller.allPedidos) {
-                    if (LocalDate.now().compareTo(pdd.getFim()) < 0) {
-                        pddPorFinalizar++;
-                    }
-                }
+        int pddPorFinalizar = 0;
+        for (Pedido pdd : Controller.allPedidos) {
+            if (LocalDate.now().compareTo(pdd.getFim()) < 0) {
+                pddPorFinalizar++;
+            }
+        }
+        for(Pessoa p : Controller.allPessoas){
+            if((p instanceof Cliente) && ((Cliente) p).getNIF().equals(NIF)) {
                 //pedido express pode ser realizado?????
                 if (pddPorFinalizar < 4) {
 
@@ -55,23 +53,19 @@ public class Phase8 extends Phase {
 
                     Plano pll = new PlanoExpress();
                     pdd.setPl(pll);
-                    pdd.setOrcamento(pll.getCusto()+10);//mao de obra + custo
+                    pdd.setOrcamento(pll.getCusto() + 10);//mao de obra + custo
 
                     Controller.allPedidos.add(pdd);
 
                     //Se foi feito com sucesso
                     return new Phase1();
                 }else{
-
                     ChangeWarningMessage("O pedido EXPRESS não pode ser efetuado devido a sobrecarga de pedidos\n");
                     return null;
                 }
-            }else {
-                //Funcionário nao existe na base de dados
-                ChangeWarningMessage("O funcionario " + nomeFuncionario + " não existe no nosso sistema\n");
-                return null;
             }
         }
+        ChangeWarningMessage("O NIF inserido não existe no sistema!\n");
         return null;
     }
 }

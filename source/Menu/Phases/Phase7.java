@@ -1,4 +1,4 @@
-package bin.Menu.Phases;
+package bin;
 
 import bin.Controller;
 import bin.Pedido.Pedido;
@@ -33,19 +33,16 @@ public class Phase7 extends Phase {
                     Controller.pedidosFinalizados.add(pdd);
                     Controller.allPedidos.remove(pdd);
 
+                    return new Phase1();
+
 
                 }else{
                     ChangeWarningMessage("O pedido ainda não está pronto!\n");
                     return null;
                 }
-            }else{
-                ChangeWarningMessage("O id ou NIF inserido não corresponde a nenhum pedido\n");
-                return null;
             }
         }
-
-
-        //Se foi feito com sucesso
-        return new Phase1();
+        ChangeWarningMessage("O id ou NIF inserido não corresponde a nenhum pedido\n");
+        return null;
     }
 }
