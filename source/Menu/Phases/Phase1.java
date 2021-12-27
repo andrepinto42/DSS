@@ -3,8 +3,10 @@ package bin;
 import bin.Phase2;
 import bin.Phase3;
 import bin.Phase4;
+import bin.Phase5;
 import bin.Pessoas.FuncionarioBalcao;
 import bin.Pessoas.FuncionarioReparacao;
+import bin.Pessoas.Gestor;
 import bin.Pessoas.Pessoa;
 
 import java.util.HashMap;
@@ -20,6 +22,7 @@ public class Phase1 extends bin.Phase {
         Default();
         BuildForPessoa();
     }
+
     private void BuildForPessoa()
     {
         if (currentPessoa == null) return;
@@ -28,6 +31,8 @@ public class Phase1 extends bin.Phase {
             BuildFuncionario();
         else if (currentPessoa instanceof FuncionarioReparacao)
             BuildReparacao();
+        else if (currentPessoa instanceof Gestor)
+            BuildGestor();
     }
     public void BuildFuncionario()
     {
@@ -40,9 +45,13 @@ public class Phase1 extends bin.Phase {
             "login -> Autenticar utilizador",
             "register -> Registar utilizador",
             "iniciate -> Iniciar novo pedido",
+            "final -> Finalizar um pedido de um cliente",
+            "express -> Iniciar um pedido express ",
         };
 
         CommandsMap.put("iniciate",Phase4.class);
+        CommandsMap.put("final",Phase7.class);
+        CommandsMap.put("express",Phase8.class);
     }
 
     public void BuildReparacao()
@@ -55,6 +64,22 @@ public class Phase1 extends bin.Phase {
             "quit -> Sair do programa",
             "login -> Autenticar utilizador",
             "register -> Registar utilizador",
+            "final -> Definir horas de trabalho e custo de um pedido",
+        };
+
+        CommandsMap.put("final", Phase5.class);
+    }
+    public void BuildGestor()
+    {
+        Messages =  new String[]{
+            "Reparação de Sistemas",
+            "Seja Bem-vindo Senhor Gestor",
+            (currentPessoa != null)? currentPessoa.getNome() : "",
+            "Comandos",
+            "quit -> Sair do programa",
+            "login -> Autenticar utilizador",
+            "register -> Registar utilizador",
+            "saldo -> Visualizar gerencia da loja",
         };
     }
 

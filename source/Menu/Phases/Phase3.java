@@ -33,15 +33,31 @@ public class Phase3 extends Phase {
             if (p.getNome().equals(name))
             {
                 //Já existe um usuario com esse nome :(
-                ChangeWarningMessage("Existe um usuario com esse nome");
+                ChangeWarningMessage("Existe um usuario com esse nome\n");
                 return null;
             }
         } 
-        
-        Pessoa p = ReadLoadPessoas.BuildPessoaFromString(cargo, name, "abasasdasdasda", password);
 
-         //Se foi feito com sucesso
-         return new Phase1();
+        //Se o cargo nao existir na nossa base de dados
+        if (!ReadLoadPessoas.stringPessoas.containsKey(cargo))
+        {
+            String messageTemp = "Só temos os seguintes encargos -> ";
+            for (String string : ReadLoadPessoas.stringPessoas.keySet()) {
+                messageTemp += string + " ";
+            }
+            messageTemp += "\n";
+            ChangeWarningMessage(messageTemp);
+            return null;
+        }
+        
+        Pessoa p = ReadLoadPessoas.BuildPessoaFromString(cargo, name, "randomID", password);
+
+        //Guardar na base de dados
+        ReadLoadPessoas.WritePessoa(p);
+        
+        Phase1.currentPessoa = p;
+        //Se foi feito com sucesso
+        return new Phase1();
 
     }
 }

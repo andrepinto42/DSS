@@ -13,6 +13,7 @@ import bin.Pessoas.FuncionarioReparacao;
 import bin.Pessoas.Gestor;
 import bin.Pessoas.Pessoa;
 import bin.Controller;
+import bin.Pessoas.ReadLoadPessoas;
 
 public class Phase2 extends Phase{
     
@@ -31,14 +32,7 @@ public class Phase2 extends Phase{
         numberStages = InputForStages.length +1;
     }
 
-    private static Map<String,Class<? extends Pessoa>> stringPessoas = new HashMap<String,Class<? extends Pessoa>>()
-    {
-        {
-            put("balcao", FuncionarioBalcao.class);
-            put("gestor", Gestor.class);
-            put("reparacao", FuncionarioReparacao.class);
-        }
-    };
+
 
     @Override
     public Phase HandleCommand(List<String> s) {
@@ -47,10 +41,10 @@ public class Phase2 extends Phase{
         String tipoFuncionario = s.get(1);
         String password = s.get(2);
 
-        if (!stringPessoas.containsKey(tipoFuncionario) )
+        if (!ReadLoadPessoas.stringPessoas.containsKey(tipoFuncionario) )
         {
             String temp = "Esse tipo de Funcionário não existe, só temos ";
-            for (String string : stringPessoas.keySet()) {
+            for (String string : ReadLoadPessoas.stringPessoas.keySet()) {
                 temp += string + " ";
             }
             temp += "\n";
@@ -60,16 +54,21 @@ public class Phase2 extends Phase{
  
         for (Pessoa p : Controller.allPessoas) {
             //Found the person we were looking after
-            if (p.getClass().equals(stringPessoas.get(tipoFuncionario)) && p.getNome().equals(username))
+            if (p.getClass().equals(ReadLoadPessoas.stringPessoas.get(tipoFuncionario)) && 
+                p.getNome().equals(username))
             {
-                Phase1.currentPessoa = p;
+                if(!p.getPassword().equals(password))
+                { 
+                    ChangeWarningMessage("O usuario "+ username +  " existe\nmas a password é incorreta :(\n");
+                    return null;
+                }
 
+                Phase1.currentPessoa = p;
                 return new Phase1();
             }
         } 
         //Se nao existir esse usuario na base de dados
         ChangeWarningMessage("Não existe o usuário "+  username + " por favor insira algo de jeito\n");
         return null;
-        
     }
 }

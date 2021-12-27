@@ -16,13 +16,13 @@ import bin.Pessoas.*;
 
 public class ReadLoadPessoas {
     public static String nameFile = "dados/baseDados.txt";
-    private static Map<String,Class<? extends Pessoa>> stringPessoas = new HashMap<String,Class<? extends Pessoa>>()
+    public static Map<String,Class<? extends Pessoa>> stringPessoas = new HashMap<String,Class<? extends Pessoa>>()
     {
         {
-            put("Cliente", Cliente.class);
-            put("Funcionario", FuncionarioBalcao.class);
-            put("Gestor", Gestor.class);
-            put("Reparacao", FuncionarioReparacao.class);
+            put("cliente", Cliente.class);
+            put("balcao", FuncionarioBalcao.class);
+            put("gestor", Gestor.class);
+            put("reparacao", FuncionarioReparacao.class);
         }
     };
 

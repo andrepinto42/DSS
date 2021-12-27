@@ -1,2 +1,3 @@
-Funcionario;andre;12315;dab;
-Cliente;rui;12315;dab;
+balcao;andre;12315;dab;
+cliente;rui;12315;dab;
+gestor;pinto;randomID;123;
