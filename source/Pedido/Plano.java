@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Plano {
 
-    private Integer totalHoras;
-    private Integer custo;
+    protected Integer totalHoras;
+    protected Integer custo;
 
     public Plano(){
         this.custo = 0;

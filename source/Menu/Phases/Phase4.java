@@ -37,7 +37,9 @@ public class Phase4 extends Phase {
             {
                 Pedido pdd = new Pedido();
                 pdd.setId(nomeEquipamento);
-                Controller.allPedidos.put(LocalDate.now(),pdd);
+                pdd.setDataRegisto(LocalDate.now());
+
+                Controller.allPedidos.add(pdd);
 
         
                 //Se foi feito com sucesso

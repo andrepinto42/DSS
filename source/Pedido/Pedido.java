@@ -7,7 +7,8 @@ import static java.time.temporal.ChronoUnit.DAYS;
 public class Pedido {
 
     private String id;
-    private long NIF;
+    private String NIF;
+    private LocalDate dataRegisto;
     private LocalDate inicio;
     private LocalDate fim;
     private Integer orcamento;
@@ -15,7 +16,8 @@ public class Pedido {
 
     public Pedido(){
         this.id = "";
-        this.NIF = 0;
+        this.NIF = "";
+        this.dataRegisto = LocalDate.now();
         this.inicio = LocalDate.now();
         this.fim = LocalDate.now();
         this.orcamento = 0;
@@ -23,9 +25,10 @@ public class Pedido {
 
     }
 
-    public Pedido(String id,long NIF, LocalDate inicio, LocalDate fim, Integer orcamento, Plano pl){
+    public Pedido(String id,String NIF,LocalDate dataRegisto, LocalDate inicio, LocalDate fim, Integer orcamento, Plano pl){
         this.id = id;
         this.NIF = NIF;
+        this.dataRegisto = dataRegisto;
         this.inicio = inicio;
         this.fim = fim;
         this.orcamento = orcamento;
@@ -36,13 +39,20 @@ public class Pedido {
     public Pedido(Pedido p){
         this.id = p.getId();
         this.NIF = p.getNIF();
+        this.dataRegisto = p.getDataRegisto()
         this.inicio = p.getInicio();
         this.fim = p.getFim();
         this.orcamento = p.getOrcamento();
         this.pl = p.getPl();
     }
 
+    public LocalDate getDataRegisto() {
+        return dataRegisto;
+    }
 
+    public void setDataRegisto(LocalDate dataRegisto) {
+        this.dataRegisto = dataRegisto;
+    }
 
     public long daysBetween(LocalDate inicio, LocalDate fim){
         return DAYS.between(inicio, fim);
@@ -72,11 +82,11 @@ public class Pedido {
         this.orcamento = orcamento;
     }
 
-    public long getNIF() {
+    public String getNIF() {
         return NIF;
     }
 
-    public void setNIF(long NIF) {
+    public void setNIF(String NIF) {
         this.NIF = NIF;
     }
 
