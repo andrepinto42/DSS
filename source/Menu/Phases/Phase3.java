@@ -6,6 +6,9 @@ import java.util.ArrayList;
 
 import bin.Phase;
 import bin.Phase1;
+import bin.Pessoas.Pessoa;
+import bin.Pessoas.ReadLoadPessoas;
+import bin.Controller;
 
 public class Phase3 extends Phase {
     public Phase3(){
@@ -21,15 +24,21 @@ public class Phase3 extends Phase {
     @Override
     public Phase HandleCommand(List<String> s) {
         
-        String name = s.get(0);
-        String cargo = s.get(1);
+        String name =     s.get(0);
+        String cargo =    s.get(1);
         String password = s.get(2);
 
         //Se nao existir esse usuario na base de dados
-        if (!cargo.equalsIgnoreCase("balcao")) {
-            ChangeWarningMessage("So existe balcao " + " por favor insira algo de jeito\n");
-            return null;
-        }
+        for (Pessoa p : Controller.allPessoas) {
+            if (p.getNome().equals(name))
+            {
+                //Já existe um usuario com esse nome :(
+                ChangeWarningMessage("Existe um usuario com esse nome");
+                return null;
+            }
+        } 
+        
+        Pessoa p = ReadLoadPessoas.BuildPessoaFromString(cargo, name, "abasasdasdasda", password);
 
          //Se foi feito com sucesso
          return new Phase1();

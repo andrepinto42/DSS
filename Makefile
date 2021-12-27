@@ -14,6 +14,7 @@ phases= source/Menu/Phases/Phase.java \
 
 pedidos= source/Pedido/Pedido.java \
 	source/Pedido/Plano.java \
+	source/Pedido/PlanoExpress.java \
 	source/Pedido/ReadLoadPedidos.java\
 
 default:

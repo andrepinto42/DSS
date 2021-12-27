@@ -1,4 +1,4 @@
-package bin.Menu.Phases;
+package bin;
 
 import bin.Controller;
 import bin.Pedido.Pedido;
@@ -72,5 +72,6 @@ public class Phase8 extends Phase {
                 return null;
             }
         }
+        return null;
     }
 }

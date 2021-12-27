@@ -39,7 +39,7 @@ public class Pedido {
     public Pedido(Pedido p){
         this.id = p.getId();
         this.NIF = p.getNIF();
-        this.dataRegisto = p.getDataRegisto()
+        this.dataRegisto = p.getDataRegisto();
         this.inicio = p.getInicio();
         this.fim = p.getFim();
         this.orcamento = p.getOrcamento();

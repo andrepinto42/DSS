@@ -61,19 +61,25 @@ public class ReadLoadPessoas {
             String IDPessoa =  sc.next();
             String passwordPessoa =  sc.next();
 
-            try {
-                Constructor<Pessoa> construt =(Constructor<Pessoa>) stringPessoas.get(tipoPessoa).getConstructors()[0];
-                pI = construt.newInstance(
-                    nomePessoa,
-                    IDPessoa,
-                    passwordPessoa
-                );    
-            } catch (Exception e) { e.printStackTrace();}
+            pI = BuildPessoaFromString(tipoPessoa, nomePessoa, IDPessoa, passwordPessoa);
             
             if (pI != null)
             allPessoas.add(pI);
         }
         return allPessoas;
+    }
+
+    public static Pessoa BuildPessoaFromString(String tipoPessoa, String nomePessoa, String IDPessoa, String passwordPessoa) {
+        Pessoa pI = null;
+        try {
+            Constructor<Pessoa> construt =(Constructor<Pessoa>) stringPessoas.get(tipoPessoa).getConstructors()[0];
+            pI = construt.newInstance(
+                nomePessoa,
+                IDPessoa,
+                passwordPessoa
+            );    
+        } catch (Exception e) { e.printStackTrace();}
+        return pI;
     }
 
 
