@@ -14,6 +14,9 @@ import bin.Phase;
 import bin.Phase1;
 import bin.Phase2;
 import bin.Phase4;
+import bin.Phase5;
+import bin.Phase6;
+import bin.Phase7;
 import bin.Phase8;
 
 public class Interpreter {
@@ -26,7 +29,7 @@ public class Interpreter {
     }
     public void Initialize()
     {
-        Phase phaseNow = new Phase1();
+        Phase phaseNow = new Phase7();
         
         String comandoInput = "";
         while(alive)

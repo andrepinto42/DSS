@@ -10,6 +10,9 @@ phases= source/Menu/Phases/Phase.java \
 	source/Menu/Phases/Phase2.java \
 	source/Menu/Phases/Phase3.java \
 	source/Menu/Phases/Phase4.java\
+	source/Menu/Phases/Phase5.java\
+	source/Menu/Phases/Phase6.java\
+	source/Menu/Phases/Phase7.java\
 	source/Menu/Phases/Phase8.java\
 
 pedidos= source/Pedido/Pedido.java \

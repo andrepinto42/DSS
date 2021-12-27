@@ -1,4 +1,4 @@
-package bin.Menu.Phases;
+package bin;
 
 import bin.*;
 import bin.Pedido.Pedido;
@@ -36,7 +36,7 @@ public class Phase5 extends Phase {
             }
         }*/
         if (!t.matches("[0-9]+")){
-            ChangeWarningMessage("Insira um número de horas!\n");
+            ChangeWarningMessage("ERRO!: Insira um número de horas!\n");
             return null;
         }else {if (!c.matches("[0-9]+")){
                 ChangeWarningMessage("Insira o valor do custo total das peças!\n");
@@ -51,7 +51,7 @@ public class Phase5 extends Phase {
         pll.setTotalHoras(tempo);
         pll.setCusto(custo);
         pdd.setPl(pll);
-        pdd.setOrcamento(pll.getCusto());+10);//custo das peças + mão de obra
+        pdd.setOrcamento(pll.getCusto()+10);//custo das peças + mão de obra
 
 
         //Se foi feito com sucesso

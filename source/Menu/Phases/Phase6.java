@@ -1,4 +1,4 @@
-package bin.Menu.Phases;
+package bin;
 
 import bin.Controller;
 import bin.Main;

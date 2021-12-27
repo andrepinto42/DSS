@@ -19,7 +19,7 @@ public class Phase2 extends Phase{
     public Phase2()
     {
         Messages =  new String[]{
-            "Autenticação do Empregado",
+            "Autenticação do Funcionario",
             "",
         };
         TipForInput = "Username";
