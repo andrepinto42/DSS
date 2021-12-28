@@ -2,6 +2,7 @@ package bin;
 
 import bin.Main;
 import bin.Pedido.Pedido;
+import bin.Pedido.ReadLoadPedidos;
 import bin.Pessoas.Cliente;
 import bin.Pessoas.FuncionarioBalcao;
 import bin.Pessoas.Pessoa;
@@ -15,8 +16,7 @@ public class Phase4 extends Phase {
 
         Messages =  new String[]{ "Novo pedido"," " };
         TipForInput = "Insira o NIF do Cliente";
-        InputForStages = new String[]{ "Insira o identificador do Pedido",
-        "" };
+        InputForStages = new String[]{ "Insira o identificador do Pedido"};
         numberStages = InputForStages.length +1;
     }
 
@@ -39,17 +39,23 @@ public class Phase4 extends Phase {
                 pdd.setNIF(NIF);
                 pdd.setDataRegisto(LocalDate.now());
 
+                ReadLoadPedidos.WritePedido(pdd);
+                
                 Controller.allPedidos.add(pdd);
 
                 //Se foi feito com sucesso
                 return new Phase1();
-
             }
         }
-        ChangeWarningMessage("O NIF inserido não existe no sistema!\n");
+
+        String warning = "Só existem os seguintes Clientes -> ";
+        for (Pessoa p : Controller.allPessoas) {
+
+            if ( ! (p instanceof Cliente))continue;
+            warning += ((Cliente) p).getNIF() + " ";
+        }
+        warning += " !\n";
+        ChangeWarningMessage(warning);
         return null;
-
-
-
     }
 }

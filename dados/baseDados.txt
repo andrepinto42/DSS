@@ -1,3 +1,4 @@
 balcao;andre;12315;dab;
-cliente;rui;12315;dab;
+cliente;rui;12345;dab;
 gestor;pinto;randomID;123;
+reparacao;tone;randomID;12345;

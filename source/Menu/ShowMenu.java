@@ -1,7 +1,7 @@
 package bin;
 
 public class ShowMenu {
-    private static int maxSize = 40;
+    private static int maxSize = 50;
     
     /*
         Função principal
@@ -12,9 +12,9 @@ public class ShowMenu {
 
         PrintMenu(sb,allMessages);
 
-        sb.append(tipInput);
-
         System.out.println(sb.toString());
+
+        System.out.print(tipInput);
 
     }
     private static void PrintMenu(StringBuilder sb,String[] allMessages)

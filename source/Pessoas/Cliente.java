@@ -15,6 +15,7 @@ public class Cliente extends Pessoa{
 
     public Cliente(String nome, String ID, String password) {
         super(nome, ID, password);
+        this.NIF = ID;
     }
     
 }

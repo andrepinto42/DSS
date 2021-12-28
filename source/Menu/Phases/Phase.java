@@ -18,7 +18,7 @@ public abstract class Phase {
             System.out.print(warningMessageTop);
         
         ShowMenu.Print(Messages,TipForInput);
-        System.out.print("$:");  
+        System.out.print(":");  
         return sc.nextLine();
     }
 

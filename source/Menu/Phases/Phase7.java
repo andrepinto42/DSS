@@ -14,8 +14,7 @@ public class Phase7 extends Phase {
 
         Messages =  new String[]{ "Finalizar pedido"," " };
         TipForInput = "Insira o identificador do Pedido";
-        InputForStages = new String[]{ "Insira o NIF do cliente",
-                "" };
+        InputForStages = new String[]{ "Insira o NIF do cliente" };
         numberStages = InputForStages.length +1;
     }
 
@@ -34,15 +33,18 @@ public class Phase7 extends Phase {
                     Controller.allPedidos.remove(pdd);
 
                     return new Phase1();
-
-
-                }else{
-                    ChangeWarningMessage("O pedido ainda não está pronto!\n");
-                    return null;
                 }
+
+                ChangeWarningMessage("O pedido ainda não está pronto!\n");
+                return null;
             }
         }
-        ChangeWarningMessage("O id ou NIF inserido não corresponde a nenhum pedido\n");
+        String warning = "Insira apenas os pedidos -> ";
+        for (Pedido p : Controller.allPedidos) {
+            warning += p.getNIF() + " ";
+        }
+        warning += "\n";
+        ChangeWarningMessage(warning);
         return null;
     }
 }

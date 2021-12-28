@@ -19,8 +19,7 @@ public class Phase6 extends Phase {
 
         Messages =  new String[]{ "Iniciar reparação"," " };
         TipForInput = "Insira o identificador do Pedido";
-        InputForStages = new String[]{ "",
-                "" };
+        InputForStages = new String[]{"Insira o NIF do Cliente" };
         numberStages = InputForStages.length +1;
     }
 
