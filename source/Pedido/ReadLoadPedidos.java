@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -35,8 +37,35 @@ public class ReadLoadPedidos {
 
     }
 
-    public static List<String> ReadAllPedidos() {
-        return null;
+    public static List<Pedido> ReadAllPedidos() {
+        var br =  GetFileReader();
+        var allLines=  br.lines().collect(Collectors.toList());
+        List<Pedido> allPedidos = new ArrayList<Pedido>();
+        Scanner sc= null;
+        
+        for (int i = 0; i < allLines.size(); i++) {
+            sc = new Scanner(allLines.get(i));
+            sc.useDelimiter(";");
+
+            String className = sc.next();
+            String id = sc.next();
+            String NIF = sc.next();
+            LocalDate inicio = LocalDate.parse(sc.next());
+            LocalDate fim =  LocalDate.parse(sc.next());
+            Integer orcamento = Integer.parseInt( sc.next());
+
+            Plano pl = new Plano(0, orcamento);
+
+            Pedido pI = new Pedido(id, NIF, inicio, inicio, fim, orcamento, pl);
+
+            
+            if (pI != null)
+            allPedidos.add(pI);
+        }
+        if (sc != null)
+            sc.close();
+        
+            return allPedidos;
     }
 
 //.......

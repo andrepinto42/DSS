@@ -35,10 +35,17 @@ public class Interpreter {
         while(alive)
         {
             //Por enquanto deixar em comentario para ver o programa a dar debug
-            // ShowMenu.ClearScreen();
+             ShowMenu.ClearScreen();
 
             comandoInput = phaseNow.Show(sc);
-            if (comandoInput.equalsIgnoreCase("quit")) break;
+            if (comandoInput.equalsIgnoreCase("quit"))
+            {
+                if (phaseNow instanceof Phase1)
+                    break;
+                
+                phaseNow = new Phase1();
+                continue;
+            }
 
             CommandsByUser.add(comandoInput);
             

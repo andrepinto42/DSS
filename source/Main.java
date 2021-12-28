@@ -2,8 +2,8 @@ package bin;
 import java.time.LocalDate;
 import java.util.*;
 
-import bin.Interpreter;
 import bin.Controller;
+import bin.Interpreter;
 import bin.Pedido.*;
 import bin.Pessoas.*;
 public class Main {

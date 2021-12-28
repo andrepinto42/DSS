@@ -39,9 +39,14 @@ public class Phase7 extends Phase {
                 return null;
             }
         }
-        String warning = "Insira apenas os pedidos -> ";
+        
+        String warning = "Insira apenas os pedidos -> \n";
+       
+        if (Controller.allPedidos.size() == 0)
+            warning = "Não existem pedidos no sistema";
+
         for (Pedido p : Controller.allPedidos) {
-            warning += p.getNIF() + " ";
+            warning +="NIF = " + p.getNIF() + " ID = " + p.getId() + "\n";
         }
         warning += "\n";
         ChangeWarningMessage(warning);

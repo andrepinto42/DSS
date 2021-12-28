@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import bin.Pedido.Pedido;
+import bin.Pedido.ReadLoadPedidos;
 import bin.Pessoas.Pessoa;
 import bin.Pessoas.ReadLoadPessoas;
 
@@ -22,6 +23,7 @@ public class Controller {
     public static void LoadDataBase()
     {
         allPessoas = ReadLoadPessoas.ReadAllPessoa();
-
+        allPedidos = ReadLoadPedidos.ReadAllPedidos();
     }
+
 }
