@@ -14,10 +14,10 @@ public class Phase3 extends Phase {
     public Phase3(){
 
     Messages =  new String[]{ "Registe-se no Sistema"," " };
-    TipForInput = "Insira o seu nome";
+    TipForInput = "Insira o nome";
     InputForStages = new String[]{ 
-        "Insira o seu encargo",
-        "Insira a sua password" };
+        "Insira o encargo",
+        "Insira uma password" };
     numberStages = InputForStages.length +1;
     }
 
@@ -33,7 +33,7 @@ public class Phase3 extends Phase {
             if (p.getNome().equals(name))
             {
                 //Já existe um usuario com esse nome :(
-                ChangeWarningMessage("Existe um usuario com esse nome\n");
+                ChangeWarningMessage("Já existe um usuario com esse nome!\n");
                 return null;
             }
         } 
