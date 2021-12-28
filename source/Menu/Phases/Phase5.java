@@ -54,7 +54,5 @@ public class Phase5 extends Phase {
 
         //Se foi feito com sucesso
         return new Phase1();
-
-
     }
 }
