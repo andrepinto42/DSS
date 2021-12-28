@@ -43,10 +43,11 @@ public class Phase1 extends bin.Phase {
     public void BuildFuncionario()
     {
         Messages =  new String[]{
-            "Reparação de Sistemas",
-            "Seja Bem-vindo",
+            "Centro de Reparações",
+            "Seja Bem-vindo funcionario de balcão",
             (currentPessoa != null)? currentPessoa.getNome() : "",
-            "Comandos",
+            "️COMANDOS:",
+                "",
             "quit -> Sair do programa",
             "login -> Autenticar utilizador",
             "register -> Registar utilizador",
@@ -58,43 +59,51 @@ public class Phase1 extends bin.Phase {
         CommandsMap.put("iniciate",Phase4.class);
         CommandsMap.put("final",Phase7.class);
         CommandsMap.put("express",Phase8.class);
+
     }
 
     public void BuildReparacao()
     {
         Messages =  new String[]{
-            "Reparação de Sistemas",
-            "Seja Bem-vindo",
+            "Centro de Reparações",
+            "Seja Bem-vindo Tecnico de reparação",
             (currentPessoa != null)? currentPessoa.getNome() : "",
-            "Comandos",
+            "COMANDOS:",
+                "",
             "quit -> Sair do programa",
             "login -> Autenticar utilizador",
             "register -> Registar utilizador",
             "final -> Definir horas de trabalho e custo de um pedido",
+            "initiate -> Iniciar reparação",
         };
 
         CommandsMap.put("final", Phase5.class);
+        CommandsMap.put("initiate", Phase6.class);
     }
     public void BuildGestor()
     {
         Messages =  new String[]{
-            "Reparação de Sistemas",
+            "Centro de Reparações",
             "Seja Bem-vindo Gestor",
             (currentPessoa != null)? currentPessoa.getNome() : "",
-            "Comandos",
+            "COMANDOS:",
+                "",
             "quit -> Sair do programa",
             "login -> Autenticar utilizador",
             "register -> Registar utilizador",
-            "saldo -> Visualizar gerencia da loja",
+            "list -> Lista de funcionarios e clientes",
         };
+
+        CommandsMap.put("list", Phase9.class);
     }
 
     private void Default() {
         Messages =  new String[]{
-            "Reparação de Sistemas",
+            "Centro de Reparações",
             "Seja Bem-vindo",
             (currentPessoa != null)? currentPessoa.getNome() : "",
-            "Comandos",
+            "COMANDOS:",
+                "",
             "quit -> Sair do programa",
             "login -> Autenticar utilizador",
             "register -> Registar utilizador",
@@ -115,7 +124,7 @@ public class Phase1 extends bin.Phase {
         
         if (!CommandsMap.containsKey(firstCommand)) 
         {
-            ChangeWarningMessage("Ups não inseriu nada de jeito\n");
+            ChangeWarningMessage("Comando incorreto!\n");
             return null;
         }
         Phase p= null;

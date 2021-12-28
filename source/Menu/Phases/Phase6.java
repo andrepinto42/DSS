@@ -47,7 +47,7 @@ public class Phase6 extends Phase {
         }
 
         //Se foi feito com sucesso
-        return new Phase1("Reparação concluida com sucesso!");
+        return new Phase1("Reparação concluida com sucesso!\n");
 
     }
 }

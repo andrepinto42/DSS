@@ -20,13 +20,13 @@ public class Phase2 extends Phase{
     public Phase2()
     {
         Messages =  new String[]{
-            "Autenticação do Funcionario",
+            "Autenticação",
             "",
         };
         TipForInput = "Username";
 
         InputForStages = new String[]{
-            "Tipo de Empregado",
+            "Encargo",
             "Password",
         };
         numberStages = InputForStages.length +1;
@@ -43,7 +43,7 @@ public class Phase2 extends Phase{
 
         if (!ReadLoadPessoas.stringPessoas.containsKey(tipoFuncionario) )
         {
-            String temp = "Esse tipo de Funcionário não existe, só temos ";
+            String temp = "Esse tipo de encargo não existe, disponivel: ";
             for (String string : ReadLoadPessoas.stringPessoas.keySet()) {
                 temp += string + " ";
             }
@@ -59,7 +59,7 @@ public class Phase2 extends Phase{
             {
                 if(!p.getPassword().equals(password))
                 { 
-                    ChangeWarningMessage("O usuario "+ username +  " existe\nmas a password é incorreta :(\n");
+                    ChangeWarningMessage("O usuario "+ username +  " existe\nmas a password está incorreta :(\n");
                     return null;
                 }
 
@@ -68,7 +68,7 @@ public class Phase2 extends Phase{
             }
         } 
         //Se nao existir esse usuario na base de dados
-        ChangeWarningMessage("Não existe o usuário "+  username + " por favor insira algo de jeito\n");
+        ChangeWarningMessage("Não existe o usuário "+  username + "\n");
         return null;
     }
 }

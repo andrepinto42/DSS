@@ -58,7 +58,7 @@ public class Phase8 extends Phase {
                     Controller.allPedidos.add(pdd);
 
                     //Se foi feito com sucesso
-                    return new Phase1("Pedido EXPRESS adicionado com sucesso!");
+                    return new Phase1("Pedido EXPRESS adicionado com sucesso!\n");
                 }else{
                     ChangeWarningMessage("O pedido EXPRESS não pode ser efetuado devido a sobrecarga de pedidos\n");
                     return null;

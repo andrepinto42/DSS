@@ -44,11 +44,11 @@ public class Phase4 extends Phase {
                 Controller.allPedidos.add(pdd);
 
                 //Se foi feito com sucesso
-                return new Phase1("Pedido adicionado com sucesso!");
+                return new Phase1("Pedido adicionado com sucesso!\n");
             }
         }
 
-        String warning = "Só existem os seguintes Clientes -> ";
+        String warning = "Só existem os seguintes Clientes (NIF) -> ";
         for (Pessoa p : Controller.allPessoas) {
 
             if ( ! (p instanceof Cliente))continue;

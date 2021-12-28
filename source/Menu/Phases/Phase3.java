@@ -41,7 +41,7 @@ public class Phase3 extends Phase {
         //Se o cargo nao existir na nossa base de dados
         if (!ReadLoadPessoas.stringPessoas.containsKey(cargo))
         {
-            String messageTemp = "Só temos os seguintes encargos -> ";
+            String messageTemp = "Encargos disponiveis -> ";
             for (String string : ReadLoadPessoas.stringPessoas.keySet()) {
                 messageTemp += string + " ";
             }

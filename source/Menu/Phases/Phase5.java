@@ -53,7 +53,7 @@ public class Phase5 extends Phase {
 
 
         //Se foi feito com sucesso
-        return new Phase1("Plano adicionado com sucesso!");
+        return new Phase1("Plano adicionado com sucesso!\n");
 
 
     }

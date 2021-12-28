@@ -3,3 +3,7 @@ cliente;rui;12345;dab;
 gestor;pinto;randomID;123;
 reparacao;tone;randomID;12345;
 reparacao;cunha;randomID;dab;
+balcao;joao;randomID;1234;
+gestor;rui pedro;randomID;123;
+cliente;manel;randomID;asd;
+balcao;hugo;randomID;123;

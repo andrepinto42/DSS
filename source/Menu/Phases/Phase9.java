@@ -17,23 +17,30 @@ import java.util.List;
 
 public class Phase9 extends Phase {
     public Phase9(){
-        List<String> mensagens = new ArrayList<String>();
-        mensagens.add("Seja bem vindo ao seu centro");
 
-        mensagens.add("Reparacao");
+        List<String> mensagens = new ArrayList<String>();
+        mensagens.add("Verificar Centro");
+        mensagens.add("");
+
+        mensagens.add("LISTA FUNCIONARIOS REPARAÇÃO:");
+        mensagens.add("");
         for (Pessoa p : Controller.allPessoas) {
             if (p instanceof FuncionarioReparacao )
-            mensagens.add(p.getNome());
+                mensagens.add(p.getNome() + " ,(password) " + p.getPassword());
         }
-        mensagens.add("Balcao");
+        mensagens.add("");
+        mensagens.add("LISTA FUNCIONARIOS BALCÃO:");
+        mensagens.add("");
         for (Pessoa p : Controller.allPessoas) {
             if (p instanceof FuncionarioBalcao )
-            mensagens.add(p.getNome());
+                mensagens.add(p.getNome() + " ,(password) " + p.getPassword());
         }
-        mensagens.add("Clientes");
+        mensagens.add("");
+        mensagens.add("LISTA DE CLIENTES:");
+        mensagens.add("");
         for (Pessoa p : Controller.allPessoas) {
             if (p instanceof Cliente )
-            mensagens.add(p.getNome());
+            mensagens.add(p.getNome() + " ,(password) " + p.getPassword() + " ,(nif)" + ((Cliente) p).getNIF());
         }
         
         
@@ -49,18 +56,6 @@ public class Phase9 extends Phase {
     @Override
     public Phase HandleCommand(List<String> s) {
 
-        // for(Pessoa p : Controller.allPessoas){
-        //     if(p instanceof Cliente) {
-        //         warning += p.getNome()
-        //     }else if(p instanceof FuncionarioBalcao){
-
-        //     }else if(p instanceof FuncionarioReparacao){
-
-        //     }else {
-
-        //     }
-
-        //Se foi feito com sucesso
         return new Phase1();
 
     }
