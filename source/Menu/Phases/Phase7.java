@@ -32,10 +32,10 @@ public class Phase7 extends Phase {
                     Controller.pedidosFinalizados.add(pdd);
                     Controller.allPedidos.remove(pdd);
 
-                    return new Phase1();
+                    return new Phase1("Pedido finalizado com sucesso!");
                 }
 
-                ChangeWarningMessage("O pedido ainda não está pronto!\n");
+                ChangeWarningMessage("O pedido de reparação ainda não está concluido!\n");
                 return null;
             }
         }

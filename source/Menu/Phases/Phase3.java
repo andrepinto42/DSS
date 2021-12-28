@@ -57,7 +57,7 @@ public class Phase3 extends Phase {
         
         Phase1.currentPessoa = p;
         //Se foi feito com sucesso        
-        return new Phase1("Foi registado no sistema com Sucesso!\n");
+        return new Phase1("Registo efetuado com Sucesso!\n");
 
     }
 }
