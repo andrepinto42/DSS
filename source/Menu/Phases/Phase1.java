@@ -17,6 +17,12 @@ public class Phase1 extends bin.Phase {
         new HashMap<String,Class<? extends Phase>>();
     public static Pessoa currentPessoa = null;
 
+    public Phase1(String s)
+    {
+        ChangeSucessMessage(s);
+        Default();
+        BuildForPessoa();
+    }
     public Phase1()
     {
         Default();

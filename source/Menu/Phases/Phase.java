@@ -11,13 +11,14 @@ public abstract class Phase {
     public  int numberStages = 1;
     protected  String[] InputForStages;
     protected String warningMessageTop = "";
+    protected String sucessMessage = "";
 
     public String Show(Scanner sc)
     {
         if (!warningMessageTop.isEmpty())
             System.out.print(warningMessageTop);
         
-        ShowMenu.Print(Messages,TipForInput);
+        ShowMenu.Print(Messages,TipForInput,sucessMessage);
         System.out.print(":");  
         return sc.nextLine();
     }
@@ -32,6 +33,10 @@ public abstract class Phase {
 
     protected void ChangeWarningMessage(String s) {
         warningMessageTop = s;
+    }
+    protected void ChangeSucessMessage(String s)
+    {
+        sucessMessage = s;
     }
   
 }

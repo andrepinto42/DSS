@@ -56,8 +56,8 @@ public class Phase3 extends Phase {
         ReadLoadPessoas.WritePessoa(p);
         
         Phase1.currentPessoa = p;
-        //Se foi feito com sucesso
-        return new Phase1();
+        //Se foi feito com sucesso        
+        return new Phase1("Foi registado no sistema com Sucesso!\n");
 
     }
 }

@@ -64,7 +64,7 @@ public class Phase2 extends Phase{
                 }
 
                 Phase1.currentPessoa = p;
-                return new Phase1();
+                return new Phase1("Login feito com sucesso!\n");
             }
         } 
         //Se nao existir esse usuario na base de dados

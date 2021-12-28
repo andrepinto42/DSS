@@ -6,7 +6,7 @@ public class ShowMenu {
     /*
         Função principal
     */
-    public static void Print(String[] allMessages,String tipInput)
+    public static void Print(String[] allMessages,String tipInput,String sucessMessage)
     {
         StringBuilder sb = new StringBuilder();
 
@@ -14,6 +14,8 @@ public class ShowMenu {
 
         System.out.println(sb.toString());
 
+        System.out.print(sucessMessage);
+        
         System.out.print(tipInput);
 
     }
