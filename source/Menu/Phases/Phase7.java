@@ -27,7 +27,7 @@ public class Phase7 extends Phase {
         for(Pedido pdd : Controller.allPedidos){
             if(pdd.getId().equals(idPedido) && pdd.getNIF().equals(NIF)) {
 
-                if(LocalDate.now().equals(pdd.getFim())){
+                if(LocalDate.now().equals(pdd.getFim()) || LocalDate.now().compareTo(pdd.getFim())>0){
 
                     Controller.pedidosFinalizados.add(pdd);
                     Controller.allPedidos.remove(pdd);
@@ -39,14 +39,18 @@ public class Phase7 extends Phase {
                 return null;
             }
         }
+
         
-        String warning = "Insira apenas os pedidos -> \n";
+        String warning = "Apenas os seguintes pedidos podem ser dados como finalizados -> \n";
        
         if (Controller.allPedidos.size() == 0)
             warning = "Não existem pedidos no sistema";
 
         for (Pedido p : Controller.allPedidos) {
-            warning +="NIF = " + p.getNIF() + " ID = " + p.getId() + "\n";
+            if(LocalDate.now().equals(p.getFim()) || LocalDate.now().compareTo(p.getFim())>0){
+                warning +="NIF = " + p.getNIF() + " ID = " + p.getId() + "\n";
+            }
+
         }
         warning += "\n";
         ChangeWarningMessage(warning);
