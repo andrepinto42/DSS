@@ -79,7 +79,7 @@ public class Phase1 extends bin.Phase {
     {
         Messages =  new String[]{
             "Reparação de Sistemas",
-            "Seja Bem-vindo Senhor Gestor",
+            "Seja Bem-vindo Gestor",
             (currentPessoa != null)? currentPessoa.getNome() : "",
             "Comandos",
             "quit -> Sair do programa",

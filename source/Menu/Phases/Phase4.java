@@ -44,7 +44,7 @@ public class Phase4 extends Phase {
                 Controller.allPedidos.add(pdd);
 
                 //Se foi feito com sucesso
-                return new Phase1();
+                return new Phase1("Pedido adicionado com sucesso!");
             }
         }
 

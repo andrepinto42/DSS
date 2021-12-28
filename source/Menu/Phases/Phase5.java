@@ -14,7 +14,7 @@ import java.util.List;
 public class Phase5 extends Phase {
     public Phase5(){
 
-        Messages =  new String[]{ "Definir tempo de reparação e custo de peças"," " };
+        Messages =  new String[]{ "Definir tempo de reparação e custo de peças (Pedido mais antigo)"," " };
         TipForInput = "Insira o tempo de reparação em horas";
         InputForStages = new String[]{ "Insira o custo total das peças"};
         numberStages = InputForStages.length +1;
@@ -53,6 +53,12 @@ public class Phase5 extends Phase {
 
 
         //Se foi feito com sucesso
+<<<<<<< HEAD
         return new Phase1();
+=======
+        return new Phase1("Plano adicionado com sucesso!");
+
+
+>>>>>>> 1ef5ec2fd6b179de1a8e1e23e7bb22fa44abae47
     }
 }
