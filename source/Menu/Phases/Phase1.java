@@ -54,11 +54,13 @@ public class Phase1 extends bin.Phase {
             "iniciate -> Iniciar novo pedido",
             "final -> Finalizar um pedido de um cliente",
             "express -> Iniciar um pedido express ",
+            //"addclient -> Adicionar um cliente ao sistema ",
         };
 
         CommandsMap.put("iniciate",Phase4.class);
         CommandsMap.put("final",Phase7.class);
         CommandsMap.put("express",Phase8.class);
+        //CommandsMap.put("express",Phase11.class);
 
     }
 
@@ -91,10 +93,12 @@ public class Phase1 extends bin.Phase {
             "quit -> Sair do programa",
             "login -> Autenticar utilizador",
             "register -> Registar utilizador",
-            "list -> Lista de funcionarios e clientes",
+            "list1 -> Lista de funcionarios e clientes",
+            "list2 -> Lista de Pedidos",
         };
 
-        CommandsMap.put("list", Phase9.class);
+        CommandsMap.put("list1", Phase9.class);
+        CommandsMap.put("list2", Phase10.class);
     }
 
     private void Default() {

@@ -54,6 +54,12 @@ public class Phase4 extends Phase {
             if ( ! (p instanceof Cliente))continue;
             warning += ((Cliente) p).getNIF() + " ";
         }
+
+        /*for (Cliente cs : Controller.clientes) {
+            warning += cs.getNIF() + " ";
+
+        }*/
+
         warning += " !\n";
         ChangeWarningMessage(warning);
         return null;

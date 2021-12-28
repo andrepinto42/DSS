@@ -8,6 +8,8 @@ import java.util.Map;
 
 import bin.Pedido.Pedido;
 import bin.Pedido.ReadLoadPedidos;
+//import bin.Pedido.ReadLoadPedidosFinalizados;
+//import bin.Pessoas.Cliente;
 import bin.Pessoas.Pessoa;
 import bin.Pessoas.ReadLoadPessoas;
 
@@ -15,6 +17,8 @@ public class Controller {
     public  static List<Pessoa> allPessoas = new ArrayList<Pessoa>();
     public static List<Pedido> allPedidos = new ArrayList<>();
     public static List<Pedido> pedidosFinalizados = new ArrayList<>();
+    //public static List<Cliente> clientes = new ArrayList<>();
+
 
     public Controller()
     {
@@ -24,6 +28,8 @@ public class Controller {
     {
         allPessoas = ReadLoadPessoas.ReadAllPessoa();
         allPedidos = ReadLoadPedidos.ReadAllPedidos();
+        //pedidosFinalizados = ReadLoadPedidosFinalizados();
+        //clientes = ReadLoadClientes();
     }
 
 }

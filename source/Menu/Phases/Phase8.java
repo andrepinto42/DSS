@@ -4,6 +4,7 @@ import bin.Controller;
 import bin.Pedido.Pedido;
 import bin.Pedido.Plano;
 import bin.Pedido.PlanoExpress;
+import bin.Pedido.ReadLoadPedidos;
 import bin.Pessoas.Cliente;
 import bin.Pessoas.FuncionarioBalcao;
 import bin.Pessoas.Pessoa;
@@ -30,10 +31,6 @@ public class Phase8 extends Phase {
         String NIF = s.get(0);
         String nomeEquipamento = s.get(1);
 
-        if (!NIF.matches("[0-9]+")) {
-            ChangeWarningMessage("Insira um NIF correto!\n");
-            return null;
-        }
 
         int pddPorFinalizar = 0;
         for (Pedido pdd : Controller.allPedidos) {
@@ -41,6 +38,11 @@ public class Phase8 extends Phase {
                 pddPorFinalizar++;
             }
         }
+        /*
+        for(Cliente cs : Controller.clientes){
+            if(cs.getNIF().equals(NIF)) {
+
+         */
         for(Pessoa p : Controller.allPessoas){
             if((p instanceof Cliente) && ((Cliente) p).getNIF().equals(NIF)) {
                 //pedido express pode ser realizado?????
@@ -55,6 +57,8 @@ public class Phase8 extends Phase {
                     pdd.setPl(pll);
                     pdd.setOrcamento(pll.getCusto() + 10);//mao de obra + custo
 
+                    ReadLoadPedidos.WritePedido(pdd);
+
                     Controller.allPedidos.add(pdd);
 
                     //Se foi feito com sucesso
@@ -65,7 +69,18 @@ public class Phase8 extends Phase {
                 }
             }
         }
-        ChangeWarningMessage("O NIF inserido não existe no sistema!\n");
+        String warning = "Só existem os seguintes Clientes (NIF) -> ";
+        for (Pessoa p : Controller.allPessoas) {
+
+            if ( ! (p instanceof Cliente))continue;
+            warning += ((Cliente) p).getNIF() + " ";
+        }
+        /*for (Cliente cs : Controller.clientes) {
+            warning += cs.getNIF() + " ";
+
+        }*/
+        warning += " !\n";
+        ChangeWarningMessage(warning);
         return null;
     }
 }

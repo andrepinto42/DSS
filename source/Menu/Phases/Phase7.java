@@ -35,7 +35,7 @@ public class Phase7 extends Phase {
                     return new Phase1("Pedido finalizado com sucesso!\n");
                 }
 
-                ChangeWarningMessage("O pedido de reparação ainda não está concluido!\n");
+                ChangeWarningMessage("A reparação ainda não está concluida!\n");
                 return null;
             }
         }
@@ -47,7 +47,7 @@ public class Phase7 extends Phase {
             warning = "Não existem pedidos no sistema";
 
         for (Pedido p : Controller.allPedidos) {
-            if(LocalDate.now().equals(p.getFim()) || LocalDate.now().compareTo(p.getFim())>0){
+            if((LocalDate.now().equals(p.getFim()) || LocalDate.now().compareTo(p.getFim())>0) && !Controller.pedidosFinalizados.contains(p)){
                 warning +="NIF = " + p.getNIF() + " ID = " + p.getId() + "\n";
             }
 

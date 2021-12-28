@@ -15,6 +15,7 @@ phases= source/Menu/Phases/Phase.java \
 	source/Menu/Phases/Phase7.java\
 	source/Menu/Phases/Phase8.java\
 	source/Menu/Phases/Phase9.java\
+	source/Menu/Phases/Phase10.java\
 
 pedidos= source/Pedido/Pedido.java \
 	source/Pedido/Plano.java \

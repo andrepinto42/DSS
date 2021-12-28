@@ -42,6 +42,10 @@ public class Phase9 extends Phase {
             if (p instanceof Cliente )
             mensagens.add(p.getNome() + " ,(password) " + p.getPassword() + " ,(nif)" + ((Cliente) p).getNIF());
         }
+
+        /*for (Cliente cs : Controller.clientes) {
+            mensagens.add(cs.getNome() + " ,(nif)" + cs.getNIF());
+        }*/
         
         
         String[] meuArray = new String[mensagens.size()];

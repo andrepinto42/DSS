@@ -19,7 +19,7 @@ public class Phase6 extends Phase {
 
         Messages =  new String[]{ "Iniciar reparação"," " };
         TipForInput = "Insira o identificador do Pedido";
-        InputForStages = new String[]{"Insira o NIF do Cliente" };
+        InputForStages = new String[]{"" };
         numberStages = InputForStages.length +1;
     }
 
@@ -27,27 +27,35 @@ public class Phase6 extends Phase {
     public Phase HandleCommand(List<String> s) {
 
         String idPedido = s.get(0);
-        String NIFcliente = s.get(1);
+        //String NIFcliente = s.get(1);
 
-        boolean temp = false;
+        //boolean temp = false;
         for(Pedido pdd : Controller.allPedidos){
             if(pdd.getId().equals(idPedido)) {
-                temp = true;
+                //temp = true;
 
                 pdd.setInicio(LocalDate.now());
 
                 long days = (long)(pdd.getPl().getTotalHoras())/24;
 
                 pdd.setFim(LocalDate.now().plus(days, ChronoUnit.DAYS));
+
+                return new Phase1("Reparação concluida com sucesso!\n");
             }
         }
-        if(!temp){
-            ChangeWarningMessage("O id inserido não corresponde a nenhum pedido\n");
-            return null;
+
+        String warning = "Apenas nos seguintes pedidos ainda não foi iniciada a reparação -> \n";
+
+        if (Controller.allPedidos.size() == 0)
+            warning = "Não existem pedidos no sistema";
+
+        for (Pedido p : Controller.allPedidos) {
+            if(p.getInicio()==null){
+                warning +="ID = " + p.getId() + " NIF = " + p.getNIF() + "\n";
+            }
         }
-
-        //Se foi feito com sucesso
-        return new Phase1("Reparação concluida com sucesso!\n");
-
+        warning += "\n";
+        ChangeWarningMessage(warning);
+        return null;
     }
 }
