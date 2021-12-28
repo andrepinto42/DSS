@@ -11,6 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         Controller.LoadDataBase();
+        
         Interpreter it = new Interpreter();
         it.Initialize();
     }

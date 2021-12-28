@@ -29,7 +29,7 @@ public class Interpreter {
     }
     public void Initialize()
     {
-        Phase phaseNow = new Phase1();
+        Phase phaseNow = new Phase9();
         
         String comandoInput = "";
         while(alive)
