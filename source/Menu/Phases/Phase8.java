@@ -42,9 +42,12 @@ public class Phase8 extends Phase {
         for(Cliente cs : Controller.clientes){
             if(cs.getNIF().equals(NIF)) {
 
-         */
-        for(Pessoa p : Controller.allPessoas){
+             for(Pessoa p : Controller.allPessoas){
             if((p instanceof Cliente) && ((Cliente) p).getNIF().equals(NIF)) {
+
+         */
+        for(Cliente cs : Controller.clientes){
+            if(cs.getNIF().equals(NIF)) {
                 //pedido express pode ser realizado?????
                 if (pddPorFinalizar < 4) {
 
@@ -70,15 +73,15 @@ public class Phase8 extends Phase {
             }
         }
         String warning = "Só existem os seguintes Clientes (NIF) -> ";
-        for (Pessoa p : Controller.allPessoas) {
+        /*for (Pessoa p : Controller.allPessoas) {
 
             if ( ! (p instanceof Cliente))continue;
             warning += ((Cliente) p).getNIF() + " ";
-        }
-        /*for (Cliente cs : Controller.clientes) {
+        }*/
+        for (Cliente cs : Controller.clientes) {
             warning += cs.getNIF() + " ";
 
-        }*/
+        }
         warning += " !\n";
         ChangeWarningMessage(warning);
         return null;

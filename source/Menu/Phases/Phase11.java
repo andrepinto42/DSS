@@ -1,7 +1,9 @@
 package bin;
 
 import bin.Controller;
+import bin.Pessoas.Cliente;
 import bin.Pessoas.Pessoa;
+import bin.Pessoas.ReadLoadClientes;
 import bin.Pessoas.ReadLoadPessoas;
 import bin.Phase;
 import bin.Phase1;
@@ -28,7 +30,7 @@ public class Phase11 extends Phase {
 
         //Se nao existir esse usuario na base de dados
         for (Cliente c : Controller.clientes) {
-            if (c.getNif().equals(nif))
+            if (c.getNIF().equals(nif))
             {
                 //Já existe um usuario com esse nome :(
                 ChangeWarningMessage("Já existe um usuario com esse nif!\n");
@@ -39,7 +41,7 @@ public class Phase11 extends Phase {
         Cliente cs = ReadLoadClientes.BuildClienteFromString(name, nif);
 
         //Guardar na base de dados
-        ReadLoadClientes.WritePessoa(cs);
+        ReadLoadClientes.WriteCliente(cs);
 
 
         return new Phase1("Cliente adicionado com Sucesso!\n");

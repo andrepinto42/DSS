@@ -49,16 +49,16 @@ public class Phase4 extends Phase {
         }
 
         String warning = "Só existem os seguintes Clientes (NIF) -> ";
-        for (Pessoa p : Controller.allPessoas) {
+        /*for (Pessoa p : Controller.allPessoas) {
 
             if ( ! (p instanceof Cliente))continue;
             warning += ((Cliente) p).getNIF() + " ";
-        }
+        }*/
 
-        /*for (Cliente cs : Controller.clientes) {
+        for (Cliente cs : Controller.clientes) {
             warning += cs.getNIF() + " ";
 
-        }*/
+        }
 
         warning += " !\n";
         ChangeWarningMessage(warning);

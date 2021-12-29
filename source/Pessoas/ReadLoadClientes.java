@@ -70,9 +70,8 @@ public class ReadLoadClientes {
     {
         try {
             File f = new File(nameFile);
-            FileWriter fileClientes = new FileWriter(f,true);
 
-            return fileClientes;
+            return new FileWriter(f,true);
         } catch (Exception e) { e.printStackTrace(); return null;       }
     }
     private static BufferedReader GetFileReader()

@@ -2,9 +2,9 @@ package bin.Pessoas;
 
 import bin.Pessoas.Pessoa;
 
-public class Cliente extends Pessoa{
+public class Cliente {
     private String NIF;
-    /*
+
     private String nome;
 
     public String getNome() {
@@ -14,7 +14,7 @@ public class Cliente extends Pessoa{
     public void setNome(String nome) {
         this.nome = nome;
     }
-    */
+
 
     public String getNIF() {
         return NIF;
@@ -24,9 +24,10 @@ public class Cliente extends Pessoa{
         this.NIF = NIF;
     }
 
-    public Cliente(String nome, String ID, String password) {
-        super(nome, ID, password);
-        this.NIF = ID;
+    public Cliente(String NIF, String nome) {
+        //super(nome, ID, password);
+        this.NIF = NIF;
+        this.nome = nome;
     }
     
 }
