@@ -26,6 +26,10 @@ public class Phase11 extends Phase {
         String name = s.get(0);
         String nif =  s.get(1);
 
+        if (!nif.matches("[0-9]+")){
+            ChangeWarningMessage("Insira um NIF válido!\n");
+            return null;
+        }
 
         //Se nao existir esse usuario na base de dados
         for (Cliente c : Controller.clientes) {

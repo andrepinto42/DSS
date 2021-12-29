@@ -23,6 +23,7 @@ public class ReadLoadPedidos {
         writePedido += GetNameClassPedido(p) + ";";
         writePedido += p.getId() + ";";
         writePedido += p.getNIF() + ";";
+        writePedido += p.getDataRegisto() + ";";
         writePedido += p.getInicio() + ";";
         writePedido += p.getFim() + ";";
         writePedido += p.getOrcamento() + ";\n";
@@ -50,13 +51,14 @@ public class ReadLoadPedidos {
             String className = sc.next();
             String id = sc.next();
             String NIF = sc.next();
+            LocalDate registo = LocalDate.parse(sc.next());
             LocalDate inicio = LocalDate.parse(sc.next());
             LocalDate fim =  LocalDate.parse(sc.next());
             Integer orcamento = Integer.parseInt( sc.next());
 
             Plano pl = new Plano(0, orcamento);
 
-            Pedido pI = new Pedido(id, NIF, inicio, inicio, fim, orcamento, pl);
+            Pedido pI = new Pedido(id, NIF, registo, inicio, fim, orcamento, pl);
 
             
             if (pI != null)

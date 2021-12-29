@@ -26,10 +26,7 @@ public class Phase4 extends Phase {
         String NIF = s.get(0);
         String nomeEquipamento = s.get(1);
 
-        /*if (!NIF.matches("[0-9]+")){
-            ChangeWarningMessage("Insira um NIF correto!\n");
-            return null;
-        }*/
+
 
         for(Cliente p : Controller.clientes){
             if( p.getNIF().equals(NIF)){
