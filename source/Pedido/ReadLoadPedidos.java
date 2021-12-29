@@ -68,8 +68,40 @@ public class ReadLoadPedidos {
             return allPedidos;
     }
 
-//.......
+    public static void RemovePedido(Pedido pdd)
+    {
+        var br =  GetFileReader();
+        var allLines=  br.lines().collect(Collectors.toList());
+        List<Pedido> allPedidos = new ArrayList<Pedido>();
+        Scanner sc= null;
 
+        File f = null;
+        FileWriter filePedidos = null;
+        //Abrir um ficheiro temporario
+        try {
+            f = new File("temp.txt");
+            filePedidos = new FileWriter(f,true);
+
+
+        
+        for (int i = 0; i < allLines.size(); i++) {
+            sc = new Scanner(allLines.get(i));
+            sc.useDelimiter(";");
+            sc.next();
+            String id = sc.next();
+            if (id.equals(pdd.getId()))
+                continue;
+            filePedidos.write(allLines.get(i) + "\n");
+        }
+
+        File inFile = new File(nameFile);
+        inFile.delete();
+
+        f.renameTo(inFile);
+        filePedidos.close();
+        sc.close();
+    } catch (Exception e) { e.printStackTrace();}   
+}
 
 
     private static FileWriter GetFileWriter()
