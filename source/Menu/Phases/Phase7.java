@@ -2,6 +2,8 @@ package bin;
 
 import bin.Controller;
 import bin.Pedido.Pedido;
+import bin.Pedido.ReadLoadPedidos;
+import bin.Pedido.ReadLoadPedidosFinalizados;
 import bin.Phase;
 import bin.Phase1;
 
@@ -32,6 +34,8 @@ public class Phase7 extends Phase {
                     Controller.pedidosFinalizados.add(pdd);
                     Controller.allPedidos.remove(pdd);
 
+                    RemoveAndWriteToFile(pdd);
+
                     return new Phase1("Pedido finalizado com sucesso!\n");
                 }
 
@@ -55,5 +59,12 @@ public class Phase7 extends Phase {
         warning += "\n";
         ChangeWarningMessage(warning);
         return null;
+    }
+
+    private void RemoveAndWriteToFile(Pedido pdd)
+    {
+        ReadLoadPedidosFinalizados.WritePedido(pdd);
+
+        ReadLoadPedidos.RemovePedido(pdd);
     }
 }
