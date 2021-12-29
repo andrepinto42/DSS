@@ -13,7 +13,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 import bin.Pessoas.*;
-
+//aaa
 public class ReadLoadPessoas {
     public static String nameFile = "dados/baseDados.txt";
     public static Map<String,Class<? extends Pessoa>> stringPessoas = new HashMap<String,Class<? extends Pessoa>>()
