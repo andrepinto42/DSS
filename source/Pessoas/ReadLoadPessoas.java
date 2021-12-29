@@ -19,7 +19,6 @@ public class ReadLoadPessoas {
     public static Map<String,Class<? extends Pessoa>> stringPessoas = new HashMap<String,Class<? extends Pessoa>>()
     {
         {
-            put("cliente", Cliente.class);
             put("balcao", FuncionarioBalcao.class);
             put("gestor", Gestor.class);
             put("reparacao", FuncionarioReparacao.class);

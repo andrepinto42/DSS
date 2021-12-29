@@ -52,7 +52,7 @@ public class ReadLoadClientes {
     }
 
     public static Cliente BuildClienteFromString(String nomeCliente, String nifCliente) {       
-        Cliente pI = new Cliente(nomeCliente,nifCliente,"12345");
+        Cliente pI = new Cliente(nifCliente,nomeCliente);
        
         return pI;
     }

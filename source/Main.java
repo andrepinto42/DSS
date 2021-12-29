@@ -16,10 +16,4 @@ public class Main {
         it.Initialize();
     }
 
-    public static void doStuff() {
-        Pessoa p = new FuncionarioBalcao("andre", "12315", "dab");
-        Pessoa p1 = new Cliente("rui", "12315", "dab");
-        ReadLoadPessoas.WritePessoa(p);
-        ReadLoadPessoas.WritePessoa(p1);
-    }
 }

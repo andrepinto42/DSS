@@ -17,11 +17,14 @@ phases= source/Menu/Phases/Phase.java \
 	source/Menu/Phases/Phase8.java\
 	source/Menu/Phases/Phase9.java\
 	source/Menu/Phases/Phase10.java\
+	source/Menu/Phases/Phase11.java\
+
 
 pedidos= source/Pedido/Pedido.java \
 	source/Pedido/Plano.java \
 	source/Pedido/PlanoExpress.java \
 	source/Pedido/ReadLoadPedidos.java\
+	source/Pedido/ReadLoadPedidosFinalizados.java\
 
 default:
 	javac -d . \

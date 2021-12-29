@@ -39,6 +39,7 @@ public class Phase11 extends Phase {
 
         Cliente cs = ReadLoadClientes.BuildClienteFromString(name, nif);
 
+        Controller.clientes.add(cs);
         //Guardar na base de dados
         ReadLoadClientes.WriteCliente(cs);
 

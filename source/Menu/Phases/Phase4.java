@@ -31,8 +31,8 @@ public class Phase4 extends Phase {
             return null;
         }*/
 
-        for(Pessoa p : Controller.allPessoas){
-            if((p instanceof Cliente) && ((Cliente) p).getNIF().equals(NIF)){
+        for(Cliente p : Controller.clientes){
+            if( p.getNIF().equals(NIF)){
 
                 Pedido pdd = new Pedido();
                 pdd.setId(nomeEquipamento);
@@ -49,15 +49,9 @@ public class Phase4 extends Phase {
         }
 
         String warning = "Só existem os seguintes Clientes (NIF) -> ";
-        /*for (Pessoa p : Controller.allPessoas) {
-
-            if ( ! (p instanceof Cliente))continue;
-            warning += ((Cliente) p).getNIF() + " ";
-        }*/
 
         for (Cliente cs : Controller.clientes) {
             warning += cs.getNIF() + " ";
-
         }
 
         warning += " !\n";
