@@ -4,6 +4,7 @@ pessoas= source/Pessoas/Pessoa.java \
 	source/Pessoas/FuncionarioBalcao.java \
 	source/Pessoas/FuncionarioReparacao.java \
 	source/Pessoas/ReadLoadPessoas.java\
+	source/Pessoas/ReadLoadClientes.java\
 
 phases= source/Menu/Phases/Phase.java \
 	source/Menu/Phases/Phase1.java \

@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -29,7 +28,7 @@ public class ReadLoadClientes {
 
     }
 
-    public static List<Pessoa> ReadAllCliente()
+    public static List<Cliente> ReadAllCliente()
     {
         var br =  GetFileReader();
         var allLines=  br.lines().collect(Collectors.toList());
@@ -51,17 +50,10 @@ public class ReadLoadClientes {
         }
         return clientes;
     }
-//??????????????????????????????????????????????????????????????????????????????
-    public static Cliente BuildClienteFromString(String nomeCliente, String nifCliente) {
-        Cliente pI = null;
-        try {
-            //Constructor<Cliente> construt =(Constructor<Cliente>) stringPessoas.get(tipoPessoa).getConstructors()[0];
-            pI = construt.newInstance(
-                    nomeCliente,
-                    nifCliente
 
-            );
-        } catch (Exception e) { e.printStackTrace();}
+    public static Cliente BuildClienteFromString(String nomeCliente, String nifCliente) {       
+        Cliente pI = new Cliente(nomeCliente,nifCliente,"12345");
+       
         return pI;
     }
 

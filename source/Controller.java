@@ -8,9 +8,11 @@ import java.util.Map;
 
 import bin.Pedido.Pedido;
 import bin.Pedido.ReadLoadPedidos;
+import bin.Pessoas.Cliente;
 //import bin.Pedido.ReadLoadPedidosFinalizados;
 //import bin.Pessoas.Cliente;
 import bin.Pessoas.Pessoa;
+import bin.Pessoas.ReadLoadClientes;
 import bin.Pessoas.ReadLoadPessoas;
 
 public class Controller {
