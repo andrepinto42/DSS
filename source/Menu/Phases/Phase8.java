@@ -20,8 +20,7 @@ public class Phase8 extends Phase {
 
         Messages = new String[]{"Novo pedido EXPRESS", " "};
         TipForInput = "Insira o NIF do Cliente";
-        InputForStages = new String[]{"Insira o identificador do Pedido",
-                ""};
+        InputForStages = new String[]{"Insira o identificador do Pedido"};
         numberStages = InputForStages.length + 1;
     }
 
@@ -38,11 +37,8 @@ public class Phase8 extends Phase {
                 pddPorFinalizar++;
             }
         }
-        /*
-        for(Cliente cs : Controller.clientes){
-            if(cs.getNIF().equals(NIF)) {
-
-             for(Pessoa p : Controller.allPessoas){
+        /*for(Pessoa p : Controller.allPessoas){
+>>>>>>> 61932bb940790da05df66b3cfcb3558a99a7f224
             if((p instanceof Cliente) && ((Cliente) p).getNIF().equals(NIF)) {
 
          */

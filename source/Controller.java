@@ -8,6 +8,7 @@ import java.util.Map;
 
 import bin.Pedido.Pedido;
 import bin.Pedido.ReadLoadPedidos;
+import bin.Pessoas.Cliente;
 //import bin.Pedido.ReadLoadPedidosFinalizados;
 //import bin.Pessoas.Cliente;
 import bin.Pessoas.Cliente;

@@ -16,8 +16,7 @@ public class Phase11 extends Phase {
         Messages =  new String[]{ "Adicionar novo Cliente"," " };
         TipForInput = "Insira o nome";
         InputForStages = new String[]{
-                "Insira o NIF",
-                "" };
+                "Insira o NIF",};
         numberStages = InputForStages.length +1;
     }
 

@@ -25,8 +25,8 @@ public class ReadLoadPedidos {
         writePedido += p.getNIF() + ";";
         writePedido += p.getInicio() + ";";
         writePedido += p.getFim() + ";";
-        writePedido += p.getOrcamento() + ";";
-        //...........
+        writePedido += p.getOrcamento() + ";\n";
+     
         System.out.println(writePedido);
 
         try {
