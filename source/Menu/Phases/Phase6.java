@@ -4,6 +4,7 @@ import bin.Controller;
 import bin.Main;
 import bin.Pedido.Pedido;
 import bin.Pedido.Plano;
+import bin.Pedido.ReadLoadPedidos;
 import bin.Pessoas.Cliente;
 import bin.Pessoas.FuncionarioBalcao;
 import bin.Pessoas.Pessoa;
@@ -32,7 +33,14 @@ public class Phase6 extends Phase {
         //boolean temp = false;
         for(Pedido pdd : Controller.allPedidos){
             if(pdd.getId().equals(idPedido)) {
+
+                if(pdd.getPl()==null){
+                    ChangeWarningMessage("O pedido ainda não tem um plano definido!");
+                    return null;
+                }
                 //temp = true;
+
+                ReadLoadPedidos.RemovePedido(pdd);
 
                 pdd.setInicio(LocalDate.now());
 
@@ -40,7 +48,9 @@ public class Phase6 extends Phase {
 
                 pdd.setFim(LocalDate.now().plus(days, ChronoUnit.DAYS));
 
-                return new Phase1("Reparação concluida com sucesso!\n");
+                ReadLoadPedidos.WritePedido(pdd);
+
+                return new Phase1("Reparação iniciada com sucesso!\n");
             }
         }
 

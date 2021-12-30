@@ -57,7 +57,7 @@ public class Phase1 extends bin.Phase {
             "addclient -> Adicionar um cliente ao sistema ",
         };
 
-        CommandsMap.put("iniciate",Phase4.class);
+        CommandsMap.put("initiate",Phase4.class);
         CommandsMap.put("final",Phase7.class);
         CommandsMap.put("express",Phase8.class);
         CommandsMap.put("addclient",Phase11.class);

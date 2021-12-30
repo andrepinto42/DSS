@@ -3,6 +3,7 @@ package bin;
 import bin.*;
 import bin.Pedido.Pedido;
 import bin.Pedido.Plano;
+import bin.Pedido.ReadLoadPedidos;
 import bin.Phase;
 import bin.Phase1;
 
@@ -45,11 +46,19 @@ public class Phase5 extends Phase {
         Controller.allPedidos.sort(Comparator.comparing(Pedido::getDataRegisto));
         Pedido pdd = Controller.allPedidos.get(0);
 
+        ReadLoadPedidos.RemovePedido(pdd);
+
         Plano pll = new Plano();
         pll.setTotalHoras(tempo);
         pll.setCusto(custo);
         pdd.setPl(pll);
         pdd.setOrcamento(pll.getCusto()+10);//custo das peças + mão de obra
+
+        ReadLoadPedidos.WritePedido(pdd);
+
+
+
+
 
 
         //Se foi feito com sucesso

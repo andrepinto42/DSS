@@ -35,6 +35,7 @@ public class Phase4 extends Phase {
                 pdd.setId(nomeEquipamento);
                 pdd.setNIF(NIF);
                 pdd.setDataRegisto(LocalDate.now());
+                pdd.setFim(LocalDate.parse("2040-01-01"));
 
                 ReadLoadPedidos.WritePedido(pdd);
                 
