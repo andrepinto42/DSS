@@ -4,4 +4,7 @@ reparacao;tone;randomID;12345;
 reparacao;cunha;randomID;dab;
 balcao;joao;randomID;1234;
 gestor;rui pedro;randomID;123;
-balcao;hugo;randomID;123;
+balcao;hugo;randomID;123;gestor;rp7;randomID;123;
+balcao;manuel;randomID;123;
+reparacao;iohef;randomID;123;
+reparacao;ewgeg;randomID;123;

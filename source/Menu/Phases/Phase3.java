@@ -1,9 +1,11 @@
 package bin;
 
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 
+import bin.Pedido.Pedido;
 import bin.Phase;
 import bin.Phase1;
 import bin.Pessoas.Pessoa;
@@ -14,7 +16,7 @@ public class Phase3 extends Phase {
     public Phase3(){
 
     Messages =  new String[]{ "Registe-se no Sistema"," " };
-    TipForInput = "Insira o nome";
+    TipForInput = "Insira o username";
     InputForStages = new String[]{ 
         "Insira o encargo",
         "Insira uma password" };
@@ -54,6 +56,8 @@ public class Phase3 extends Phase {
 
         //Guardar na base de dados
         ReadLoadPessoas.WritePessoa(p);
+
+        Controller.allPessoas.add(p);
         
         Phase1.currentPessoa = p;
         //Se foi feito com sucesso        
