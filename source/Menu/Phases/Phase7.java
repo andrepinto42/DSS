@@ -39,7 +39,21 @@ public class Phase7 extends Phase {
                     return new Phase1("Pedido finalizado com sucesso!\n");
                 }
 
-                ChangeWarningMessage("A reparação ainda não está concluida!\n");
+                //ChangeWarningMessage("A reparação ainda não está concluida!\n");
+                String warning = "A reparação ainda não está concluida!\n";
+                warning += "Apenas os seguintes pedidos podem ser dados como finalizados -> \n";
+
+                if (Controller.allPedidos.size() == 0)
+                    warning = "Não existem pedidos no sistema";
+
+                for (Pedido p : Controller.allPedidos) {
+                    if((LocalDate.now().equals(p.getFim()) || LocalDate.now().compareTo(p.getFim())>0) && !Controller.pedidosFinalizados.contains(p)){
+                        warning +="NIF = " + p.getNIF() + " ID = " + p.getId() + "\n";
+                    }
+
+                }
+                warning += "\n";
+                ChangeWarningMessage(warning);
                 return null;
             }
         }
@@ -67,4 +81,6 @@ public class Phase7 extends Phase {
 
         ReadLoadPedidos.RemovePedido(pdd);
     }
+
+
 }

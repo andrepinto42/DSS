@@ -25,7 +25,7 @@ public class Phase10 extends Phase {
             mensagens.add("ID: "+p.getId()+" ,NIF do cliente: "+ p.getNIF());
         }
 
-
+        mensagens.add("");
         mensagens.add("LISTA DE PEDIDOS FINALIZADOS:");
         mensagens.add("");
         for (Pedido pf : Controller.pedidosFinalizados) {
