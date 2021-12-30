@@ -27,7 +27,7 @@ pedidos= source/Pedido/Pedido.java \
 	source/Pedido/ReadLoadPedidosFinalizados.java\
 
 default:
-	javac -d . \
+	javac -Xlint -d . \
 	$(pessoas) \
 	$(pedidos) \
 	$(phases) \

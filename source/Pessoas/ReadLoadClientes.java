@@ -17,8 +17,8 @@ public class ReadLoadClientes {
 
         String WriteCliente = "";
         WriteCliente += c.getNome() + ";";
-        WriteCliente += c.getNIF() + ";\n";
-        System.out.println(WriteCliente);
+        WriteCliente += c.getNIF() + ";";
+        WriteCliente += c.getEmail() + ";\n";
 
         try {
             fwriter.write(WriteCliente);
@@ -42,8 +42,9 @@ public class ReadLoadClientes {
             Cliente pI = null;
             String nomeCliente =  sc.next();
             String nifCliente =  sc.next();
+            String emailCliente = sc.next();
 
-            pI = BuildClienteFromString(nomeCliente, nifCliente);
+            pI = BuildClienteFromString(nomeCliente, nifCliente,emailCliente);
 
             if (pI != null)
                 clientes.add(pI);
@@ -51,8 +52,8 @@ public class ReadLoadClientes {
         return clientes;
     }
 
-    public static Cliente BuildClienteFromString(String nomeCliente, String nifCliente) {       
-        Cliente pI = new Cliente(nifCliente,nomeCliente);
+    public static Cliente BuildClienteFromString(String nomeCliente, String nifCliente,String emailCliente) {       
+        Cliente pI = new Cliente(nifCliente,nomeCliente,emailCliente);
        
         return pI;
     }

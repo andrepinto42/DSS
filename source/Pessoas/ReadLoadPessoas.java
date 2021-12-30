@@ -71,7 +71,10 @@ public class ReadLoadPessoas {
     public static Pessoa BuildPessoaFromString(String tipoPessoa, String nomePessoa, String IDPessoa, String passwordPessoa) {
         Pessoa pI = null;
         try {
-            Constructor<Pessoa> construt =(Constructor<Pessoa>) stringPessoas.get(tipoPessoa).getConstructors()[0];
+            Constructor<?> temp[] = stringPessoas.get(tipoPessoa).getConstructors();
+            
+            //Este cast é sempre válido
+            @SuppressWarnings("unchecked") Constructor<Pessoa> construt = (Constructor<Pessoa>) temp[0];
             pI = construt.newInstance(
                 nomePessoa,
                 IDPessoa,

@@ -16,7 +16,7 @@ public class Phase11 extends Phase {
         Messages =  new String[]{ "Adicionar novo Cliente"," " };
         TipForInput = "Insira o nome";
         InputForStages = new String[]{
-                "Insira o NIF",};
+                "Insira o NIF","Insira um email"};
         numberStages = InputForStages.length +1;
     }
 
@@ -25,6 +25,7 @@ public class Phase11 extends Phase {
 
         String name = s.get(0);
         String nif =  s.get(1);
+        String email =  s.get(2);
 
         if (!nif.matches("[0-9]+")){
             ChangeWarningMessage("Insira um NIF válido!\n");
@@ -41,7 +42,7 @@ public class Phase11 extends Phase {
             }
         }
 
-        Cliente cs = ReadLoadClientes.BuildClienteFromString(name, nif);
+        Cliente cs = ReadLoadClientes.BuildClienteFromString(name, nif,email);
 
         Controller.clientes.add(cs);
         //Guardar na base de dados
